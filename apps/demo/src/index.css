@@ -12,6 +12,21 @@ html {
   text-rendering: optimizeLegibility;
 }
 
+/* Accessibility: honor reduced-motion globally (kills animations + the grain). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .grain-layer {
+    display: none;
+  }
+}
+
 /* Accordion enter/exit (Radix content-height driven) */
 @theme {
   --animate-accordion-down: accordion-down 0.2s ease-out;

@@ -34,7 +34,7 @@ function semanticRoles({ neutral: N, accent: A, accentLight: AL, accentDark: AD 
       muted: `${N}.100`, 'muted-foreground': `${N}.500`,
       accent: `${N}.100`, 'accent-foreground': `${N}.900`,
       destructive: 'red.600', 'destructive-foreground': `${N}.50`,
-      success: 'green.500', 'success-foreground': `${N}.50`,
+      success: 'green.500', 'success-foreground': `${N}.950`,
       warning: 'amber.500', 'warning-foreground': `${N}.950`,
       border: `${N}.200`, input: `${N}.200`, ring: `${A}.${AL}`,
     },
@@ -46,7 +46,7 @@ function semanticRoles({ neutral: N, accent: A, accentLight: AL, accentDark: AD 
       secondary: `${N}.800`, 'secondary-foreground': `${N}.50`,
       muted: `${N}.800`, 'muted-foreground': `${N}.400`,
       accent: `${N}.800`, 'accent-foreground': `${N}.50`,
-      destructive: 'red.500', 'destructive-foreground': `${N}.50`,
+      destructive: 'red.600', 'destructive-foreground': `${N}.50`,
       success: 'green.500', 'success-foreground': `${N}.950`,
       warning: 'amber.400', 'warning-foreground': `${N}.950`,
       border: `${N}.800`, input: `${N}.800`, ring: `${A}.${AD}`,
@@ -121,6 +121,7 @@ await fs.mkdir(`${OUT}/expressions`, { recursive: true });
 const exprFiles = readdirSync(`${SRC}/expressions`).filter((f) => f.endsWith('.json')).sort();
 const built = [];
 const scoped = [];
+const audit = {};
 for (const file of exprFiles) {
   const ex = JSON.parse(await fs.readFile(`${SRC}/expressions/${file}`, 'utf8'));
   const { light, dark } = semanticRoles(ex);
@@ -144,6 +145,10 @@ ${rootBlock('.dark', dark)}
   const fontExtra = `\n  --font-sans: ${ex.fonts.sans};\n  --font-mono: ${ex.fonts.mono};\n  --font-display: ${ex.fonts.display};\n  --radius: ${ex.radius};`;
   scoped.push(rootBlock(`.expr-${ex.name}`, light, fontExtra));
   scoped.push(rootBlock(`.expr-${ex.name}-dark`, dark, fontExtra));
+  audit[ex.name] = {
+    light: Object.fromEntries(Object.entries(light).map(([r, ref]) => [r, C[ref] ?? ref])),
+    dark: Object.fromEntries(Object.entries(dark).map(([r, ref]) => [r, C[ref] ?? ref])),
+  };
 
   // Default expression also emits the legacy tokens.css + theme.css (demo + registry consume these).
   if (ex.name === 'instrument') {
@@ -160,6 +165,7 @@ await fs.writeFile(
   `${OUT}/expressions-scoped.css`,
   `${BANNER}\n/* Runtime expression switching: wrap any subtree in .expr-<name> (light) or .expr-<name>-dark. */\n\n${scoped.join('\n\n')}\n`,
 );
+await fs.writeFile(`${OUT}/audit.json`, `${JSON.stringify(audit, null, 2)}\n`);
 
 console.log(`✓ @olivekit/tokens built → expressions/{${built.map((e) => e.name).join(', ')}}.css + tokens.css/theme.css (default: instrument)`);
 console.log(`  ${ROLES.length} semantic roles × (light+dark) × ${built.length} expressions · ${Object.keys(typo.roles).length} type roles · ${Object.keys(motion.easing).length} easings.`);

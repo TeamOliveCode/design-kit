@@ -22,3 +22,5 @@ jobs:
         run: pnpm lint:design
       - name: Token + demo build
         run: pnpm build:demo
+      - name: Contrast (WCAG AA, every expression × mode)
+        run: pnpm check:contrast
