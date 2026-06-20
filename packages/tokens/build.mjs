@@ -167,5 +167,19 @@ await fs.writeFile(
 );
 await fs.writeFile(`${OUT}/audit.json`, `${JSON.stringify(audit, null, 2)}\n`);
 
+// Cross-stack outputs for non-CSS consumers (JS / React Native / native bridges, and SCSS projects).
+await fs.writeFile(
+  `${OUT}/tokens.ts`,
+  `// @olivekit/tokens — GENERATED. Resolved OKLCH values per expression × mode. For web, prefer the CSS variables.\nexport const olivekit = ${JSON.stringify(audit, null, 2)} as const;\nexport type Expression = keyof typeof olivekit;\nexport type Mode = 'light' | 'dark';\n`,
+);
+const scssVars = Object.entries(audit.instrument.light)
+  .filter(([k]) => k !== 'radius')
+  .map(([k, v]) => `$${k}: ${v};`)
+  .join('\n');
+await fs.writeFile(
+  `${OUT}/tokens.scss`,
+  `// @olivekit/tokens — GENERATED (instrument, light). For runtime theming use the CSS variables instead.\n${scssVars}\n`,
+);
+
 console.log(`✓ @olivekit/tokens built → expressions/{${built.map((e) => e.name).join(', ')}}.css + tokens.css/theme.css (default: instrument)`);
 console.log(`  ${ROLES.length} semantic roles × (light+dark) × ${built.length} expressions · ${Object.keys(typo.roles).length} type roles · ${Object.keys(motion.easing).length} easings.`);

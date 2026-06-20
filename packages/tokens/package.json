@@ -7,8 +7,14 @@
   "files": ["dist", "src"],
   "exports": {
     "./css": "./dist/tokens.css",
+    "./theme": "./dist/theme.css",
     "./json": "./dist/tokens.json",
-    "./theme": "./dist/theme.css"
+    "./ts": "./dist/tokens.ts",
+    "./scss": "./dist/tokens.scss",
+    "./scoped": "./dist/expressions-scoped.css",
+    "./instrument": "./dist/expressions/instrument.css",
+    "./warm": "./dist/expressions/warm.css",
+    "./editorial": "./dist/expressions/editorial.css"
   },
   "scripts": {
     "build": "node build.mjs"
