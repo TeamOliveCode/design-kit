@@ -61,7 +61,7 @@ export const NavigationMenuContent = React.forwardRef<
   <NavigationMenuPrimitive.Content
     ref={ref}
     className={cn(
-      'left-0 top-0 w-full p-2 md:absolute md:w-auto',
+      'start-0 top-0 w-full p-2 md:absolute md:w-auto',
       'data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out',
       'data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52',
       className,
@@ -101,7 +101,7 @@ export const NavigationMenuIndicator = React.forwardRef<
     )}
     {...props}
   >
-    <div className="relative top-3/4 size-2 rotate-45 rounded-tl-sm border border-border bg-popover shadow-card" />
+    <div className="relative top-3/4 size-2 rotate-45 rounded-ss-sm border border-border bg-popover shadow-card" />
   </NavigationMenuPrimitive.Indicator>
 ));
 NavigationMenuIndicator.displayName = 'NavigationMenuIndicator';
@@ -110,7 +110,7 @@ export const NavigationMenuViewport = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
 >(({ className, ...props }, ref) => (
-  <div className="absolute left-0 top-full flex justify-center">
+  <div className="absolute start-0 top-full flex justify-center">
     <NavigationMenuPrimitive.Viewport
       ref={ref}
       className={cn(

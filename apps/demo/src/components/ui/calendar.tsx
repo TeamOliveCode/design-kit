@@ -31,16 +31,16 @@ export function Calendar({ className, classNames, showOutsideDays = true, ...pro
         week: 'flex w-full mt-2',
         day: cn(
           'relative p-0 text-center text-sm focus-within:relative focus-within:z-20',
-          '[&:has([aria-selected])]:bg-accent [&:has([aria-selected].day-range-end)]:rounded-r-md',
+          '[&:has([aria-selected])]:bg-accent [&:has([aria-selected].day-range-end)]:rounded-e-md',
           '[&:has([aria-selected].day-outside)]:bg-accent/50',
-          'first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md',
+          'first:[&:has([aria-selected])]:rounded-s-md last:[&:has([aria-selected])]:rounded-e-md',
         ),
         day_button: cn(
           buttonVariants({ variant: 'ghost', size: 'icon' }),
           'size-9 p-0 font-normal aria-selected:opacity-100',
         ),
-        range_start: 'day-range-start rounded-l-md',
-        range_end: 'day-range-end rounded-r-md',
+        range_start: 'day-range-start rounded-s-md',
+        range_end: 'day-range-end rounded-e-md',
         range_middle: 'aria-selected:bg-accent aria-selected:text-accent-foreground',
         selected: cn(
           'bg-primary text-primary-foreground',

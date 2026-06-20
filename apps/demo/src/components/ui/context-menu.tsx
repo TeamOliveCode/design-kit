@@ -36,7 +36,7 @@ export const ContextMenuItem = React.forwardRef<
     ref={ref}
     className={cn(
       itemClasses,
-      inset && 'pl-8',
+      inset && 'ps-8',
       variant === 'destructive' && 'text-destructive focus:bg-destructive/10 focus:text-destructive [&_svg]:text-destructive',
       className,
     )}
@@ -49,8 +49,8 @@ export const ContextMenuCheckboxItem = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.CheckboxItem>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.CheckboxItem>
 >(({ className, children, checked, ...props }, ref) => (
-  <ContextMenuPrimitive.CheckboxItem ref={ref} checked={checked} className={cn(itemClasses, 'py-1.5 pl-8 pr-2', className)} {...props}>
-    <span className="absolute left-2 flex size-3.5 items-center justify-center">
+  <ContextMenuPrimitive.CheckboxItem ref={ref} checked={checked} className={cn(itemClasses, 'py-1.5 ps-8 pe-2', className)} {...props}>
+    <span className="absolute start-2 flex size-3.5 items-center justify-center">
       <ContextMenuPrimitive.ItemIndicator>
         <Check className="size-4" />
       </ContextMenuPrimitive.ItemIndicator>
@@ -64,8 +64,8 @@ export const ContextMenuRadioItem = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.RadioItem>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.RadioItem>
 >(({ className, children, ...props }, ref) => (
-  <ContextMenuPrimitive.RadioItem ref={ref} className={cn(itemClasses, 'py-1.5 pl-8 pr-2', className)} {...props}>
-    <span className="absolute left-2 flex size-3.5 items-center justify-center">
+  <ContextMenuPrimitive.RadioItem ref={ref} className={cn(itemClasses, 'py-1.5 ps-8 pe-2', className)} {...props}>
+    <span className="absolute start-2 flex size-3.5 items-center justify-center">
       <ContextMenuPrimitive.ItemIndicator>
         <Circle className="size-2 fill-current" />
       </ContextMenuPrimitive.ItemIndicator>
@@ -81,7 +81,7 @@ export const ContextMenuLabel = React.forwardRef<
 >(({ className, inset, ...props }, ref) => (
   <ContextMenuPrimitive.Label
     ref={ref}
-    className={cn('px-2 py-1.5 text-xs font-medium uppercase tracking-wide text-muted-foreground', inset && 'pl-8', className)}
+    className={cn('px-2 py-1.5 text-xs font-medium uppercase tracking-wide text-muted-foreground', inset && 'ps-8', className)}
     {...props}
   />
 ));
@@ -96,7 +96,7 @@ export const ContextMenuSeparator = React.forwardRef<
 ContextMenuSeparator.displayName = 'ContextMenuSeparator';
 
 export function ContextMenuShortcut({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) {
-  return <span className={cn('ml-auto font-mono text-xs tracking-widest text-muted-foreground', className)} {...props} />;
+  return <span className={cn('ms-auto font-mono text-xs tracking-widest text-muted-foreground', className)} {...props} />;
 }
 
 export const ContextMenuSubTrigger = React.forwardRef<
@@ -105,11 +105,11 @@ export const ContextMenuSubTrigger = React.forwardRef<
 >(({ className, inset, children, ...props }, ref) => (
   <ContextMenuPrimitive.SubTrigger
     ref={ref}
-    className={cn(itemClasses, 'data-[state=open]:bg-accent', inset && 'pl-8', className)}
+    className={cn(itemClasses, 'data-[state=open]:bg-accent', inset && 'ps-8', className)}
     {...props}
   >
     {children}
-    <ChevronRight className="ml-auto size-4" />
+    <ChevronRight className="ms-auto size-4" />
   </ContextMenuPrimitive.SubTrigger>
 ));
 ContextMenuSubTrigger.displayName = 'ContextMenuSubTrigger';

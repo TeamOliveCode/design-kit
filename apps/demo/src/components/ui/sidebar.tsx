@@ -11,7 +11,7 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
       ref={ref}
       data-collapsed={collapsed || undefined}
       className={cn(
-        'flex flex-col border-r border-border bg-card transition-[width] duration-200',
+        'flex flex-col border-e border-border bg-card transition-[width] duration-200',
         collapsed ? 'w-16' : 'w-64',
         className,
       )}
@@ -80,7 +80,7 @@ export const SidebarItem = React.forwardRef<HTMLButtonElement, SidebarItemProps>
       type="button"
       data-active={active || undefined}
       className={cn(
-        'flex items-center gap-2.5 rounded-md px-2.5 py-2 text-left text-sm text-foreground hover:bg-accent [&_svg]:size-4 [&_svg]:shrink-0',
+        'flex items-center gap-2.5 rounded-md px-2.5 py-2 text-start text-sm text-foreground hover:bg-accent [&_svg]:size-4 [&_svg]:shrink-0',
         active && 'bg-accent text-accent-foreground font-medium',
         className,
       )}

@@ -47,7 +47,7 @@ export function TreeItem({
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="flex w-full cursor-pointer items-center gap-2 rounded-md px-2 py-1 text-left text-sm hover:bg-accent"
+        className="flex w-full cursor-pointer items-center gap-2 rounded-md px-2 py-1 text-start text-sm hover:bg-accent"
       >
         <ChevronRight
           className={cn('size-4 shrink-0 text-muted-foreground transition-transform', open && 'rotate-90')}
@@ -56,7 +56,7 @@ export function TreeItem({
         <span className="truncate">{label}</span>
       </button>
       {open ? (
-        <div role="group" className="ml-3 border-l border-border pl-4">
+        <div role="group" className="ms-3 border-s border-border ps-4">
           {children}
         </div>
       ) : null}

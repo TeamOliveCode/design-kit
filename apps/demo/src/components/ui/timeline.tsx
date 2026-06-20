@@ -5,7 +5,7 @@ export const Timeline = React.forwardRef<HTMLOListElement, React.HTMLAttributes<
   ({ className, ...props }, ref) => (
     <ol
       ref={ref}
-      className={cn('relative ml-2 flex flex-col gap-6 border-l border-border', className)}
+      className={cn('relative ms-2 flex flex-col gap-6 border-s border-border', className)}
       {...props}
     />
   ),
@@ -20,10 +20,10 @@ export interface TimelineItemProps extends Omit<React.HTMLAttributes<HTMLLIEleme
 
 export const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
   ({ title, time, icon, children, className, ...props }, ref) => (
-    <li ref={ref} className={cn('relative pl-6', className)} {...props}>
+    <li ref={ref} className={cn('relative ps-6', className)} {...props}>
       <span
         className={cn(
-          'absolute -left-[7px] top-1 flex size-3.5 items-center justify-center rounded-full border-2 border-card [&_svg]:size-2.5',
+          'absolute -start-[7px] top-1 flex size-3.5 items-center justify-center rounded-full border-2 border-card [&_svg]:size-2.5',
           icon ? 'bg-muted text-muted-foreground' : 'bg-primary',
         )}
       >

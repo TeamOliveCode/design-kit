@@ -36,7 +36,7 @@ export const DropdownMenuItem = React.forwardRef<
     ref={ref}
     className={cn(
       itemClasses,
-      inset && 'pl-8',
+      inset && 'ps-8',
       variant === 'destructive' && 'text-destructive focus:bg-destructive/10 focus:text-destructive [&_svg]:text-destructive',
       className,
     )}
@@ -49,8 +49,8 @@ export const DropdownMenuCheckboxItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>
 >(({ className, children, checked, ...props }, ref) => (
-  <DropdownMenuPrimitive.CheckboxItem ref={ref} checked={checked} className={cn(itemClasses, 'py-1.5 pl-8 pr-2', className)} {...props}>
-    <span className="absolute left-2 flex size-3.5 items-center justify-center">
+  <DropdownMenuPrimitive.CheckboxItem ref={ref} checked={checked} className={cn(itemClasses, 'py-1.5 ps-8 pe-2', className)} {...props}>
+    <span className="absolute start-2 flex size-3.5 items-center justify-center">
       <DropdownMenuPrimitive.ItemIndicator>
         <Check className="size-4" />
       </DropdownMenuPrimitive.ItemIndicator>
@@ -64,8 +64,8 @@ export const DropdownMenuRadioItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>
 >(({ className, children, ...props }, ref) => (
-  <DropdownMenuPrimitive.RadioItem ref={ref} className={cn(itemClasses, 'py-1.5 pl-8 pr-2', className)} {...props}>
-    <span className="absolute left-2 flex size-3.5 items-center justify-center">
+  <DropdownMenuPrimitive.RadioItem ref={ref} className={cn(itemClasses, 'py-1.5 ps-8 pe-2', className)} {...props}>
+    <span className="absolute start-2 flex size-3.5 items-center justify-center">
       <DropdownMenuPrimitive.ItemIndicator>
         <Circle className="size-2 fill-current" />
       </DropdownMenuPrimitive.ItemIndicator>
@@ -81,7 +81,7 @@ export const DropdownMenuLabel = React.forwardRef<
 >(({ className, inset, ...props }, ref) => (
   <DropdownMenuPrimitive.Label
     ref={ref}
-    className={cn('px-2 py-1.5 text-xs font-medium uppercase tracking-wide text-muted-foreground', inset && 'pl-8', className)}
+    className={cn('px-2 py-1.5 text-xs font-medium uppercase tracking-wide text-muted-foreground', inset && 'ps-8', className)}
     {...props}
   />
 ));
@@ -96,7 +96,7 @@ export const DropdownMenuSeparator = React.forwardRef<
 DropdownMenuSeparator.displayName = 'DropdownMenuSeparator';
 
 export function DropdownMenuShortcut({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) {
-  return <span className={cn('ml-auto font-mono text-xs tracking-widest text-muted-foreground', className)} {...props} />;
+  return <span className={cn('ms-auto font-mono text-xs tracking-widest text-muted-foreground', className)} {...props} />;
 }
 
 export const DropdownMenuSubTrigger = React.forwardRef<
@@ -105,7 +105,7 @@ export const DropdownMenuSubTrigger = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <DropdownMenuPrimitive.SubTrigger ref={ref} className={cn(itemClasses, 'data-[state=open]:bg-accent', className)} {...props}>
     {children}
-    <ChevronRight className="ml-auto size-4" />
+    <ChevronRight className="ms-auto size-4" />
   </DropdownMenuPrimitive.SubTrigger>
 ));
 DropdownMenuSubTrigger.displayName = 'DropdownMenuSubTrigger';

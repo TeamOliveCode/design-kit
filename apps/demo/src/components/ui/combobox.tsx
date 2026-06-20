@@ -42,7 +42,7 @@ export function Combobox({
           className={cn('w-full justify-between font-normal', !selected && 'text-muted-foreground', className)}
         >
           {selected ? selected.label : placeholder}
-          <ChevronsUpDown className="ml-2 size-4 shrink-0 text-muted-foreground" />
+          <ChevronsUpDown className="ms-2 size-4 shrink-0 text-muted-foreground" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0" align="start">
@@ -60,7 +60,7 @@ export function Combobox({
                     setOpen(false);
                   }}
                 >
-                  <Check className={cn('mr-2 size-4', option.value === value ? 'opacity-100' : 'opacity-0')} />
+                  <Check className={cn('me-2 size-4', option.value === value ? 'opacity-100' : 'opacity-0')} />
                   {option.label}
                 </CommandItem>
               ))}
