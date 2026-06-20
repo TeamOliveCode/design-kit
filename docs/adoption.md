@@ -15,7 +15,7 @@ Everything ships from the GitHub repo. There is no registry server to run.
 ## A. New project (greenfield)
 
 ```bash
-npx github:TeamOliveCode/design-kit init        # drops CLAUDE.md + tokens + guardrail + components.json
+npx github:TeamOliveCode/design-kit init        # .claude/olivekit.md + CLAUDE.md pointer + tokens + guardrail + components.json
 npx shadcn@latest add @olivekit/tokens @olivekit/button @olivekit/card
 npm run lint:design                   # must pass
 ```
@@ -24,8 +24,8 @@ npm run lint:design                   # must pass
 
 ## B. Existing / already-running project
 
-`init` is **append-safe**, so it does not clobber your setup:
-- `CLAUDE.md`: appends the OliveKit rules section only if it is not already there (your existing CLAUDE.md is kept).
+`init` is **non-destructive**, so it does not clobber your setup:
+- **Rules**: the house rules are written to a fully-managed `.claude/olivekit.md`; your `CLAUDE.md` gets only a small pinned pointer (wrapped in `<!-- olivekit:start -->` / `<!-- olivekit:end -->`) that `@import`s it. Re-running replaces that block in place (never duplicates) and overwrites the managed file, so updates stay clean and your own CLAUDE.md content is never touched. Anything non-OliveKit already at `.claude/olivekit.md` is backed up to `.bak` first.
 - tokens, the lint script, and `components.json` are added without touching your code.
 
 Then treat the guardrail as a **migration tool**:

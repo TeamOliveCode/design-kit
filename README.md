@@ -24,7 +24,7 @@ npx shadcn@latest add @olivekit/tokens @olivekit/button @olivekit/card
 npm run lint:design
 ```
 
-`init` drops in `CLAUDE.md`, the tokens, the guardrail, and a `components.json` pointing `@olivekit` at this repo's `r/` on GitHub raw (no server). Add the two token imports to your main CSS after `@import "tailwindcss";`:
+`init` writes the house rules to a managed `.claude/olivekit.md` and pins a small `@import` pointer in your `CLAUDE.md` (idempotent, never appends to or clobbers your own instructions), plus the tokens, the guardrail, and a `components.json` pointing `@olivekit` at this repo's `r/` on GitHub raw (no server). Add the two token imports to your main CSS after `@import "tailwindcss";`:
 
 ```css
 @import "./olivekit/tokens.css";
