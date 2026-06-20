@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stepper",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "apps/demo/src/components/ui/stepper.tsx",
+      "content": "import * as React from 'react';\nimport { Check } from 'lucide-react';\nimport { cn } from '@/lib/utils';\n\nexport interface StepperStep {\n  label: string;\n  description?: string;\n}\n\nexport interface StepperProps extends React.HTMLAttributes<HTMLDivElement> {\n  steps: StepperStep[];\n  current: number;\n}\n\nexport const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(\n  ({ steps, current, className, ...props }, ref) => (\n    <div ref={ref} className={cn('flex w-full items-start', className)} {...props}>\n      {steps.map((step, index) => {\n        const isCompleted = index < current;\n        const isCurrent = index === current;\n        const isLast = index === steps.length - 1;\n\n        return (\n          <React.Fragment key={step.label}>\n            <div className=\"flex flex-col items-center gap-2 text-center\">\n              <span\n                className={cn(\n                  'flex size-8 shrink-0 items-center justify-center rounded-full border text-sm font-medium transition-colors',\n                  isCompleted && 'border-primary bg-primary text-primary-foreground',\n                  isCurrent && 'border-primary text-primary',\n                  !isCompleted && !isCurrent && 'border-border text-muted-foreground',\n                )}\n                aria-current={isCurrent ? 'step' : undefined}\n              >\n                {isCompleted ? <Check className=\"size-4\" /> : index + 1}\n              </span>\n              <div className=\"flex flex-col gap-0.5\">\n                <span\n                  className={cn(\n                    'text-sm font-medium transition-colors',\n                    isCurrent || isCompleted ? 'text-foreground' : 'text-muted-foreground',\n                  )}\n                >\n                  {step.label}\n                </span>\n                {step.description ? <span className=\"text-caption text-muted-foreground\">{step.description}</span> : null}\n              </div>\n            </div>\n            {!isLast ? (\n              <span\n                className={cn('mt-4 h-px flex-1 transition-colors', isCompleted ? 'bg-primary' : 'bg-border')}\n                aria-hidden=\"true\"\n              />\n            ) : null}\n          </React.Fragment>\n        );\n      })}\n    </div>\n  ),\n);\nStepper.displayName = 'Stepper';\n",
+      "type": "registry:ui",
+      "target": "components/ui/stepper.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

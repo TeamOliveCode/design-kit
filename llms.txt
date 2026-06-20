@@ -27,7 +27,7 @@ Bootstrap a project with: `npx github:TeamOliveCode/design-kit init`.
 - Type roles: text-display-2xl…sm, text-h1…h6, text-body-lg/body/body-sm, text-label, text-caption, text-2xs, text-code, text-overline
 - Motion: ease-out (enter) / ease-in (exit) / ease-in-out / ease-brand; duration-fast/base/slow/slower
 
-## Components (39)
+## Components (45)
 - accordion: `npx shadcn add @olivekit/accordion`
 - alert: `npx shadcn add @olivekit/alert`
 - alert-dialog: `npx shadcn add @olivekit/alert-dialog`
@@ -40,6 +40,8 @@ Bootstrap a project with: `npx github:TeamOliveCode/design-kit init`.
 - card: `npx shadcn add @olivekit/card`
 - checkbox: `npx shadcn add @olivekit/checkbox`
 - collapsible: `npx shadcn add @olivekit/collapsible`
+- combobox: `npx shadcn add @olivekit/combobox`
+- command: `npx shadcn add @olivekit/command`
 - context-menu: `npx shadcn add @olivekit/context-menu`
 - dialog: `npx shadcn add @olivekit/dialog`
 - dropdown-menu: `npx shadcn add @olivekit/dropdown-menu`
@@ -49,6 +51,8 @@ Bootstrap a project with: `npx github:TeamOliveCode/design-kit init`.
 - kbd: `npx shadcn add @olivekit/kbd`
 - label: `npx shadcn add @olivekit/label`
 - layout: `npx shadcn add @olivekit/layout`
+- menubar: `npx shadcn add @olivekit/menubar`
+- navigation-menu: `npx shadcn add @olivekit/navigation-menu`
 - pagination: `npx shadcn add @olivekit/pagination`
 - popover: `npx shadcn add @olivekit/popover`
 - progress: `npx shadcn add @olivekit/progress`
@@ -59,7 +63,9 @@ Bootstrap a project with: `npx github:TeamOliveCode/design-kit init`.
 - sheet: `npx shadcn add @olivekit/sheet`
 - skeleton: `npx shadcn add @olivekit/skeleton`
 - slider: `npx shadcn add @olivekit/slider`
+- sonner: `npx shadcn add @olivekit/sonner`
 - spinner: `npx shadcn add @olivekit/spinner`
+- stepper: `npx shadcn add @olivekit/stepper`
 - switch: `npx shadcn add @olivekit/switch`
 - table: `npx shadcn add @olivekit/table`
 - tabs: `npx shadcn add @olivekit/tabs`
