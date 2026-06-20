@@ -3,7 +3,7 @@
 // This is the propagation mechanism: a CLAUDE.md written in the kit repo does NOT reach other
 // projects; running this drops the rules + tokens + guardrail + registry config into the target,
 // so Claude Code reads the house rules and stays on-system there too.
-import { cpSync, mkdirSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdirSync, existsSync, readFileSync, writeFileSync, statSync } from 'node:fs';
 import { resolve, join, relative, dirname, sep } from 'node:path';
 
 const KIT = resolve(import.meta.dirname, '../..');
@@ -14,6 +14,21 @@ if (cmd !== 'init') {
   console.log('Usage: olivekit init [target-dir]');
   process.exit(cmd ? 1 : 0);
 }
+
+const isDir = (rel) => existsSync(join(TARGET, rel)) && statSync(join(TARGET, rel)).isDirectory();
+
+// Detect the project's source roots up front so everything below adapts to the real layout
+// instead of assuming a `src/` tree. Next.js app-router projects keep web code in app/ +
+// components/ with no src/ at all; hardcoding `src` made the guardrail silently lint zero files.
+// Scope to WEB UI dirs only — OliveKit is a web design system, so we deliberately skip lib/,
+// engine/, bin/ etc.: CLI/backend code legitimately prints "·" and "—" and must not be flagged.
+const SRC_CANDIDATES = ['src', 'app', 'components', 'pages', 'ui'];
+const detectedSrcDirs = SRC_CANDIDATES.filter(isDir);
+const lintTarget = detectedSrcDirs.length ? detectedSrcDirs.join(' ') : 'src';
+
+// Detect the CSS entry the same way, so both components.json and the import wiring point at it.
+const CSS_CANDIDATES = ['src/index.css', 'src/styles.css', 'src/app/globals.css', 'app/globals.css', 'styles/globals.css', 'src/styles/globals.css', 'src/app.css'];
+const cssEntry = CSS_CANDIDATES.find((rel) => existsSync(join(TARGET, rel)));
 
 console.log(`Applying OliveKit -> ${TARGET}\n`);
 mkdirSync(TARGET, { recursive: true });
@@ -80,9 +95,9 @@ if (existsSync(pkgPath)) {
   const pkg = JSON.parse(readFileSync(pkgPath, 'utf8'));
   pkg.scripts ||= {};
   if (!pkg.scripts['lint:design']) {
-    pkg.scripts['lint:design'] = 'node scripts/lint-design.mjs src';
+    pkg.scripts['lint:design'] = `node scripts/lint-design.mjs ${lintTarget}`;
     writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`);
-    created.push('package.json (added "lint:design")');
+    created.push(`package.json (added "lint:design" scoped to ${lintTarget})`);
   }
 }
 
@@ -96,7 +111,7 @@ if (!existsSync(componentsJson)) {
         $schema: 'https://ui.shadcn.com/schema.json',
         style: 'new-york',
         tsx: true,
-        tailwind: { css: 'src/styles.css', baseColor: 'neutral', cssVariables: true },
+        tailwind: { css: cssEntry || 'src/styles.css', baseColor: 'neutral', cssVariables: true },
         aliases: { components: '@/components', ui: '@/components/ui', utils: '@/lib/utils' },
         registries: { '@olivekit': 'https://raw.githubusercontent.com/TeamOliveCode/design-kit/main/r/{name}.json' },
       },
@@ -113,11 +128,10 @@ mkdirSync(skillDir, { recursive: true });
 cpSync(join(KIT, 'skills/olivekit-design/SKILL.md'), join(skillDir, 'SKILL.md'));
 created.push('.claude/skills/olivekit-design/SKILL.md');
 
-// 6. Best-effort: wire the token imports into a detected CSS entry, with the correct relative path.
+// 6. Best-effort: wire the token imports into the detected CSS entry, with the correct relative path.
 let cssWired = false;
-for (const rel of ['src/index.css', 'src/styles.css', 'src/app/globals.css', 'app/globals.css', 'styles/globals.css', 'src/styles/globals.css', 'src/app.css']) {
-  const p = join(TARGET, rel);
-  if (!existsSync(p)) continue;
+if (cssEntry) {
+  const p = join(TARGET, cssEntry);
   const css = readFileSync(p, 'utf8');
   if (!css.includes('olivekit/tokens.css')) {
     let rp = relative(dirname(p), join(TARGET, 'olivekit')).split(sep).join('/');
@@ -127,10 +141,9 @@ for (const rel of ['src/index.css', 'src/styles.css', 'src/app/globals.css', 'ap
       ? css.replace(/(@import\s+["']tailwindcss["'][^\n]*\n)/, `$1${imports}`)
       : imports + css;
     writeFileSync(p, next);
-    created.push(`${rel} (wired token imports)`);
+    created.push(`${cssEntry} (wired token imports)`);
   }
   cssWired = true;
-  break;
 }
 
 console.log('Created:');
