@@ -4,6 +4,7 @@
 /* Layer ①, the token contract. Same two files any other stack would consume. */
 @import "../../../packages/tokens/dist/tokens.css";
 @import "../../../packages/tokens/dist/theme.css";
+@import "../../../packages/tokens/dist/expressions-scoped.css";
 
 html {
   font-family: var(--font-sans);

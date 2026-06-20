@@ -120,6 +120,7 @@ const rootBlock = (selector, roleMap, extra = '') => {
 await fs.mkdir(`${OUT}/expressions`, { recursive: true });
 const exprFiles = readdirSync(`${SRC}/expressions`).filter((f) => f.endsWith('.json')).sort();
 const built = [];
+const scoped = [];
 for (const file of exprFiles) {
   const ex = JSON.parse(await fs.readFile(`${SRC}/expressions/${file}`, 'utf8'));
   const { light, dark } = semanticRoles(ex);
@@ -139,6 +140,11 @@ ${rootBlock('.dark', dark)}
   await fs.writeFile(`${OUT}/expressions/${ex.name}.json`, `${JSON.stringify(flat, null, 2)}\n`);
   built.push(ex);
 
+  // scoped variants for runtime switching / showcasing several expressions on one page
+  const fontExtra = `\n  --font-sans: ${ex.fonts.sans};\n  --font-mono: ${ex.fonts.mono};\n  --font-display: ${ex.fonts.display};\n  --radius: ${ex.radius};`;
+  scoped.push(rootBlock(`.expr-${ex.name}`, light, fontExtra));
+  scoped.push(rootBlock(`.expr-${ex.name}-dark`, dark, fontExtra));
+
   // Default expression also emits the legacy tokens.css + theme.css (demo + registry consume these).
   if (ex.name === 'instrument') {
     await fs.writeFile(
@@ -149,6 +155,11 @@ ${rootBlock('.dark', dark)}
     await fs.writeFile(`${OUT}/tokens.json`, `${JSON.stringify(flat, null, 2)}\n`);
   }
 }
+
+await fs.writeFile(
+  `${OUT}/expressions-scoped.css`,
+  `${BANNER}\n/* Runtime expression switching: wrap any subtree in .expr-<name> (light) or .expr-<name>-dark. */\n\n${scoped.join('\n\n')}\n`,
+);
 
 console.log(`✓ @olivekit/tokens built → expressions/{${built.map((e) => e.name).join(', ')}}.css + tokens.css/theme.css (default: instrument)`);
 console.log(`  ${ROLES.length} semantic roles × (light+dark) × ${built.length} expressions · ${Object.keys(typo.roles).length} type roles · ${Object.keys(motion.easing).length} easings.`);

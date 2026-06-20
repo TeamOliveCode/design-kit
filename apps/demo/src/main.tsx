@@ -4,6 +4,7 @@ import App from './App';
 import Landing from './Landing';
 import Gallery from './Gallery';
 import Overview from './Overview';
+import Expressions from './Expressions';
 import './index.css';
 
 // Minimal hash router so the demo can show both surface standards:
@@ -18,6 +19,7 @@ function Root() {
 
   if (hash.startsWith('#/landing')) return <Landing />;
   if (hash.startsWith('#/gallery')) return <Gallery />;
+  if (hash.startsWith('#/expressions')) return <Expressions />;
   if (hash.startsWith('#/overview') || hash === '' || hash === '#/') return <Overview />;
   return <App />;
 }
