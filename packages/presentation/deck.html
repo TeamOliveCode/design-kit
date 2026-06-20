@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OliveKit deck</title>
+    <!-- On-brand slides: same OliveKit token contract as the apps. Swap the href to switch expression. -->
+    <link rel="stylesheet" href="../tokens/dist/tokens.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --font-sans: "Hanken Grotesk", "Pretendard Variable", Pretendard, ui-sans-serif, system-ui, sans-serif;
+        --font-mono: "IBM Plex Mono", "Pretendard Variable", Pretendard, ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; height: 100vh; overflow: hidden; background: var(--background); color: var(--foreground); font-family: var(--font-sans); }
+      .grain { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.05;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+      .slide { position: absolute; inset: 0; z-index: 1; display: none; flex-direction: column; justify-content: center; padding: 9vh 9vw; }
+      .slide.active { display: flex; }
+      .glow { position: absolute; inset: 0; z-index: -1; pointer-events: none;
+        background: radial-gradient(40% 50% at 80% 25%, color-mix(in oklab, var(--primary) 22%, transparent), transparent 70%); }
+      .eyebrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 600; color: var(--primary); }
+      h1 { font-size: clamp(2.5rem, 6.5vw, 5.25rem); font-weight: 800; letter-spacing: -0.022em; line-height: 1.02; margin: 1.5rem 0 0; }
+      h2 { font-size: clamp(1.875rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.015em; line-height: 1.1; margin: 0.75rem 0 0; }
+      .lead { font-size: clamp(1.1rem, 1.6vw, 1.4rem); color: var(--muted-foreground); margin-top: 1.5rem; max-width: 46ch; line-height: 1.5; }
+      ul { margin: 2rem 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 1.1rem; max-width: 60ch; }
+      li { display: flex; gap: 0.9rem; align-items: baseline; font-size: clamp(1.1rem, 1.7vw, 1.5rem); line-height: 1.4; }
+      li .mk { width: 7px; height: 7px; border-radius: 9999px; background: var(--primary); flex: none; transform: translateY(-0.3em); }
+      .statement { font-size: clamp(2rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.018em; line-height: 1.12; max-width: 20ch; }
+      .statement .em { color: var(--primary); }
+      .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 2.5rem; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+      .metric { background: var(--card); padding: 1.75rem; }
+      .metric .n { font-family: var(--font-mono); font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 600; letter-spacing: -0.01em; }
+      .metric .l { color: var(--muted-foreground); font-size: 0.9rem; margin-top: 0.4rem; }
+      .footer { position: fixed; z-index: 2; bottom: 4.5vh; left: 9vw; right: 9vw; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted-foreground); }
+      .mark { display: inline-flex; align-items: center; gap: 0.5rem; }
+      .mark .sq { width: 18px; height: 18px; border-radius: 5px; background: var(--primary); }
+      .progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--primary); z-index: 3; transition: width 240ms cubic-bezier(0.05,0.7,0.1,1); }
+    </style>
+  </head>
+  <body>
+    <div class="grain"></div>
+    <div class="progress" id="progress"></div>
+
+    <section class="slide title active">
+      <div class="glow"></div>
+      <p class="eyebrow">olivecode labs / Q3 review</p>
+      <h1>One design system, every surface.</h1>
+      <p class="lead">Apps, landing pages, and now this deck, all on the same OliveKit tokens. Built by the agent, consistent by default.</p>
+    </section>
+
+    <section class="slide">
+      <p class="eyebrow">01 / Agenda</p>
+      <h2>What we will cover</h2>
+      <ul>
+        <li><span class="mk"></span>Where the design drift came from</li>
+        <li><span class="mk"></span>The token contract and the expression layer</li>
+        <li><span class="mk"></span>How the agent stays on-system</li>
+        <li><span class="mk"></span>Rollout across the team</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <p class="eyebrow">02 / The shift</p>
+      <p class="statement">Stop deciding the look <span class="em">per project.</span> Decide it once, apply it everywhere.</p>
+    </section>
+
+    <section class="slide">
+      <p class="eyebrow">03 / Impact</p>
+      <h2>Where we landed</h2>
+      <div class="metrics">
+        <div class="metric"><div class="n">1</div><div class="l">token source</div></div>
+        <div class="metric"><div class="n">3</div><div class="l">expressions</div></div>
+        <div class="metric"><div class="n">60/60</div><div class="l">contrast AA</div></div>
+      </div>
+      <p class="lead">The guardrail blocks AI tells in CI, so consistency holds without manual review. 한글도 Pretendard로 일관되게.</p>
+    </section>
+
+    <section class="slide title">
+      <div class="glow"></div>
+      <p class="eyebrow">olivecode labs</p>
+      <h1>Questions?</h1>
+      <p class="lead">The system, the components, and this deck all live in one repo.</p>
+    </section>
+
+    <div class="footer">
+      <span class="mark"><span class="sq"></span>OliveKit</span>
+      <span id="pageno">1 / 5</span>
+    </div>
+
+    <script>
+      const slides = [...document.querySelectorAll('.slide')];
+      let i = 0;
+      const render = () => {
+        slides.forEach((s, n) => s.classList.toggle('active', n === i));
+        document.getElementById('pageno').textContent = `${i + 1} / ${slides.length}`;
+        document.getElementById('progress').style.width = `${((i + 1) / slides.length) * 100}%`;
+      };
+      const go = (d) => { i = Math.max(0, Math.min(slides.length - 1, i + d)); render(); };
+      addEventListener('keydown', (e) => {
+        if (['ArrowRight', 'ArrowDown', ' ', 'PageDown'].includes(e.key)) { e.preventDefault(); go(1); }
+        if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); go(-1); }
+      });
+      addEventListener('click', () => go(1));
+      render();
+    </script>
+  </body>
+</html>

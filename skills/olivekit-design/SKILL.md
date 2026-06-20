@@ -41,4 +41,5 @@ Pick the type role by meaning, never an arbitrary size: hero `text-display-2xl`,
 - Content & voice (action vocabulary, state copy, i18n): `https://github.com/TeamOliveCode/design-kit/blob/main/docs/standards/content.md`
 - App / product UI (dense, dark, mono data, dot status): `https://github.com/TeamOliveCode/design-kit/blob/main/docs/standards/app-ui.md`
 - Landing / marketing (airy, big display type, one signature): `https://github.com/TeamOliveCode/design-kit/blob/main/docs/standards/landing.md`
+- Presentation / HTML decks (16:9 slides, deck type scale, same tokens): `https://github.com/TeamOliveCode/design-kit/blob/main/docs/standards/presentation.md` (template: `packages/presentation/deck.html`)
 - Component anatomy and depth bar: `https://github.com/TeamOliveCode/design-kit/blob/main/docs/standards/components.md`
