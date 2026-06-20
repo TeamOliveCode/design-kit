@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OliveKit web components</title>
+    <!-- Same token contract any stack consumes. Web components read the CSS variables; no Tailwind, no React. -->
+    <link rel="stylesheet" href="../tokens/dist/tokens.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root { --font-sans: "Hanken Grotesk", "Pretendard Variable", Pretendard, ui-sans-serif, system-ui, sans-serif; }
+      body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-sans); padding: 3rem; }
+      h1 { font-size: 1.875rem; font-weight: 800; letter-spacing: -0.014em; margin: 0 0 0.25rem; }
+      p.lead { color: var(--muted-foreground); margin: 0 0 2rem; }
+      .row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 1.5rem; }
+    </style>
+    <script type="module">
+      import { LitElement, html, css } from 'https://esm.sh/lit@3';
+
+      const base = css`:host { font-family: inherit; }`;
+
+      class OkButton extends LitElement {
+        static styles = [base, css`
+          button {
+            display: inline-flex; align-items: center; gap: 0.5rem; height: 2.25rem; padding: 0 1rem;
+            border: 1px solid transparent; border-radius: var(--radius); font: inherit; font-weight: 500; font-size: 0.875rem;
+            background: var(--primary); color: var(--primary-foreground); cursor: pointer;
+            transition: opacity 180ms cubic-bezier(0.05,0.7,0.1,1);
+          }
+          button:hover { opacity: 0.9; }
+          :host([variant="outline"]) button { background: transparent; color: var(--foreground); border-color: var(--border); }
+          :host([variant="ghost"]) button { background: transparent; color: var(--foreground); }
+        `];
+        render() { return html`<button><slot></slot></button>`; }
+      }
+      customElements.define('ok-button', OkButton);
+
+      class OkBadge extends LitElement {
+        static styles = [base, css`
+          span { display: inline-flex; align-items: center; gap: 0.375rem; border-radius: 9999px; padding: 0.125rem 0.625rem;
+            font-size: 0.75rem; font-weight: 500;
+            background: color-mix(in oklab, var(--primary) 12%, transparent); color: var(--primary); }
+          :host([variant="success"]) span { background: color-mix(in oklab, var(--success) 12%, transparent); color: var(--success); }
+        `];
+        render() { return html`<span><slot></slot></span>`; }
+      }
+      customElements.define('ok-badge', OkBadge);
+
+      class OkInput extends LitElement {
+        static styles = [base, css`
+          input { height: 2.25rem; width: 16rem; padding: 0 0.75rem; border-radius: var(--radius);
+            border: 1px solid var(--input); background: transparent; color: var(--foreground); font: inherit; font-size: 0.875rem; }
+          input::placeholder { color: var(--muted-foreground); }
+          input:focus-visible { outline: 2px solid var(--ring); outline-offset: 1px; }
+        `];
+        render() { return html`<input placeholder=${this.placeholder ?? ''} />`; }
+        static properties = { placeholder: { type: String } };
+      }
+      customElements.define('ok-input', OkInput);
+
+      class OkCard extends LitElement {
+        static styles = [base, css`
+          .card { border: 1px solid var(--border); background: var(--card); color: var(--card-foreground);
+            border-radius: calc(var(--radius) + 4px); padding: 1.25rem; max-width: 22rem; }
+          .title { font-weight: 600; font-size: 1.125rem; margin: 0 0 0.25rem; }
+          .desc { color: var(--muted-foreground); font-size: 0.875rem; margin: 0; }
+          .dot { display:inline-block; width: 6px; height: 6px; border-radius:9999px; background: var(--primary); margin-right: 6px; }
+        `];
+        render() { return html`<div class="card"><p class="title"><slot name="title"></slot></p><p class="desc"><slot></slot></p></div>`; }
+      }
+      customElements.define('ok-card', OkCard);
+    </script>
+  </head>
+  <body>
+    <h1>OliveKit web components</h1>
+    <p class="lead">Framework-agnostic (Lit). They read the same OliveKit CSS variables, so they work in Vue, Svelte, server-rendered HTML, or no framework at all. Korean renders in Pretendard: 가나다 0123.</p>
+
+    <div class="row">
+      <ok-button>Get started</ok-button>
+      <ok-button variant="outline">Docs</ok-button>
+      <ok-button variant="ghost">Skip</ok-button>
+    </div>
+    <div class="row">
+      <ok-badge>Default</ok-badge>
+      <ok-badge variant="success">Active</ok-badge>
+      <ok-input placeholder="Search 검색"></ok-input>
+    </div>
+    <div class="row">
+      <ok-card><span slot="title">Same tokens, no framework</span>This card is a custom element. 다람쥐 헌 쳇바퀴에 타고파.</ok-card>
+    </div>
+  </body>
+</html>

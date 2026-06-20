@@ -1,0 +1,8 @@
+{
+  "name": "@olivekit/web-components",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Framework-agnostic OliveKit components (Lit custom elements) that consume the token CSS variables.",
+  "dependencies": { "lit": "^3.0.0" }
+}
