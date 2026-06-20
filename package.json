@@ -14,6 +14,7 @@
     "lint:design": "node scripts/lint-design.mjs",
     "check:contrast": "node scripts/check-contrast.mjs",
     "typecheck": "pnpm --filter @olivekit/demo exec tsc --noEmit",
+    "test:visual": "playwright test",
     "build:registry": "node scripts/build-registry.mjs && npx shadcn@latest build registry.json -o r && node scripts/build-llms.mjs"
   },
   "pnpm": {
@@ -23,6 +24,7 @@
     ]
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.0",
     "culori": "^4.0.2"
   }
 }
