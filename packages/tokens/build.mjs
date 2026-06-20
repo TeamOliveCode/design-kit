@@ -90,7 +90,19 @@ ${textRoles}
 ${easings}
 ${durations}
 
+  --shadow-xs: 0 1px 2px -1px rgb(20 20 20 / 0.08);
+  --shadow-sm: 0 1px 3px 0 rgb(20 20 20 / 0.1), 0 1px 2px -1px rgb(20 20 20 / 0.1);
+  --shadow-md: 0 4px 12px -2px rgb(20 20 20 / 0.12);
+  --shadow-lg: 0 12px 32px -8px rgb(20 20 20 / 0.18);
   --shadow-card: 0 1px 2px -1px rgb(20 20 20 / 0.1), 0 10px 28px -14px rgb(20 20 20 / 0.18);
+
+  /* data-viz categorical palette (shared across expressions, distinct + legible on light & dark) */
+  --color-chart-1: oklch(0.700 0.150 128);
+  --color-chart-2: oklch(0.680 0.160 40);
+  --color-chart-3: oklch(0.620 0.150 250);
+  --color-chart-4: oklch(0.800 0.150 75);
+  --color-chart-5: oklch(0.700 0.130 175);
+  --color-chart-6: oklch(0.600 0.160 300);
 }
 
 @theme inline {
