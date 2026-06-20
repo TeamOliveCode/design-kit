@@ -241,6 +241,20 @@
       ]
     },
     {
+      "name": "chart",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "apps/demo/src/components/ui/chart.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/chart.tsx"
+        }
+      ]
+    },
+    {
       "name": "checkbox",
       "type": "registry:ui",
       "dependencies": [

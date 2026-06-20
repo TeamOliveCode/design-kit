@@ -1,0 +1,11 @@
+{
+  "name": "@olivekit/mcp",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MCP server exposing OliveKit components, standards, and expressions to AI agents.",
+  "bin": { "olivekit-mcp": "./server.mjs" },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}

@@ -27,7 +27,7 @@ Bootstrap a project with: `npx github:TeamOliveCode/design-kit init`.
 - Type roles: text-display-2xl…sm, text-h1…h6, text-body-lg/body/body-sm, text-label, text-caption, text-2xs, text-code, text-overline
 - Motion: ease-out (enter) / ease-in (exit) / ease-in-out / ease-brand; duration-fast/base/slow/slower
 
-## Components (55)
+## Components (56)
 - accordion: `npx shadcn add @olivekit/accordion`
 - alert: `npx shadcn add @olivekit/alert`
 - alert-dialog: `npx shadcn add @olivekit/alert-dialog`
@@ -40,6 +40,7 @@ Bootstrap a project with: `npx github:TeamOliveCode/design-kit init`.
 - calendar: `npx shadcn add @olivekit/calendar`
 - card: `npx shadcn add @olivekit/card`
 - carousel: `npx shadcn add @olivekit/carousel`
+- chart: `npx shadcn add @olivekit/chart`
 - checkbox: `npx shadcn add @olivekit/checkbox`
 - collapsible: `npx shadcn add @olivekit/collapsible`
 - combobox: `npx shadcn add @olivekit/combobox`

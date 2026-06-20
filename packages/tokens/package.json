@@ -4,7 +4,10 @@
   "private": true,
   "type": "module",
   "description": "Framework-independent design tokens (DTCG) — single source, multi-output build.",
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "exports": {
     "./css": "./dist/tokens.css",
     "./theme": "./dist/theme.css",
@@ -20,6 +23,7 @@
     "build": "node build.mjs"
   },
   "devDependencies": {
+    "culori": "^4.0.2",
     "style-dictionary": "^4.3.0"
   }
 }
