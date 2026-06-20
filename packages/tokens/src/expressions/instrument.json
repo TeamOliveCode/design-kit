@@ -1,0 +1,16 @@
+{
+  "name": "instrument",
+  "label": "Instrument — utility / SaaS, dark-first, precise (electric olive)",
+  "neutral": "ink",
+  "accent": "olive",
+  "accentLight": "700",
+  "accentDark": "500",
+  "radius": "0.5rem",
+  "defaultMode": "dark",
+  "signature": "grain+glow",
+  "fonts": {
+    "sans": "\"Hanken Grotesk\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, sans-serif",
+    "mono": "\"IBM Plex Mono\", \"Pretendard Variable\", Pretendard, ui-monospace, SFMono-Regular, Menlo, monospace",
+    "display": "\"Hanken Grotesk\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, sans-serif"
+  }
+}

@@ -1,12 +1,12 @@
 {
-  "$description": "Primitive tokens — the raw palette and scales. Build-time only; never referenced directly by components. Edit these to retune the whole system.",
+  "$description": "Primitive tokens — the raw palette. Build-time only; never referenced directly by components. Expressions pick a neutral + accent ramp from here; edit these to retune.",
   "color": {
     "$type": "color",
     "white": { "$value": "oklch(1 0 0)" },
     "black": { "$value": "oklch(0 0 0)" },
 
     "olive": {
-      "$description": "Brand accent — electric lime-olive (Lab Instrument direction). Brighter and higher-chroma so it glows on near-black. On-brand (olivecode) and anti-cliché vs the purple/blue that dominates AI UI.",
+      "$description": "Instrument accent — electric lime-olive. Brighter/higher-chroma so it glows on near-black.",
       "50":  { "$value": "oklch(0.975 0.025 128)" },
       "100": { "$value": "oklch(0.950 0.052 128)" },
       "200": { "$value": "oklch(0.912 0.092 128)" },
@@ -21,7 +21,7 @@
     },
 
     "ink": {
-      "$description": "Neutral ramp with a faint green tint (hue 150, very low chroma) so surfaces read as deliberate, not default gray.",
+      "$description": "Instrument neutral — green-tinted near-black ramp (hue 150, very low chroma).",
       "50":  { "$value": "oklch(0.985 0.003 150)" },
       "100": { "$value": "oklch(0.970 0.004 150)" },
       "200": { "$value": "oklch(0.922 0.006 150)" },
@@ -35,16 +35,57 @@
       "950": { "$value": "oklch(0.145 0.006 150)" }
     },
 
-    "red": {
-      "500": { "$value": "oklch(0.637 0.208 25)" },
-      "600": { "$value": "oklch(0.577 0.215 27)" }
+    "coral": {
+      "$description": "Warm accent — confident coral/persimmon (hue ~36). Deliberately NOT the AI cream+terracotta cliché.",
+      "50":  { "$value": "oklch(0.971 0.018 40)" },
+      "100": { "$value": "oklch(0.940 0.040 40)" },
+      "200": { "$value": "oklch(0.888 0.078 39)" },
+      "300": { "$value": "oklch(0.818 0.118 38)" },
+      "400": { "$value": "oklch(0.742 0.150 37)" },
+      "500": { "$value": "oklch(0.680 0.166 36)" },
+      "600": { "$value": "oklch(0.602 0.160 34)" },
+      "700": { "$value": "oklch(0.520 0.140 32)" },
+      "800": { "$value": "oklch(0.440 0.114 30)" },
+      "900": { "$value": "oklch(0.372 0.090 28)" },
+      "950": { "$value": "oklch(0.262 0.060 28)" }
     },
+
+    "stone": {
+      "$description": "Warm/Editorial neutral — warm gray ramp (hue ~68, very low chroma).",
+      "50":  { "$value": "oklch(0.985 0.004 75)" },
+      "100": { "$value": "oklch(0.970 0.006 75)" },
+      "200": { "$value": "oklch(0.925 0.008 72)" },
+      "300": { "$value": "oklch(0.870 0.010 70)" },
+      "400": { "$value": "oklch(0.712 0.012 68)" },
+      "500": { "$value": "oklch(0.560 0.014 66)" },
+      "600": { "$value": "oklch(0.442 0.014 64)" },
+      "700": { "$value": "oklch(0.372 0.013 62)" },
+      "800": { "$value": "oklch(0.272 0.011 60)" },
+      "900": { "$value": "oklch(0.212 0.009 58)" },
+      "950": { "$value": "oklch(0.152 0.007 56)" }
+    },
+
+    "red": {
+      "$description": "Danger + Editorial accent (claret). Full ramp.",
+      "50":  { "$value": "oklch(0.971 0.018 25)" },
+      "100": { "$value": "oklch(0.936 0.040 25)" },
+      "200": { "$value": "oklch(0.885 0.078 25)" },
+      "300": { "$value": "oklch(0.808 0.130 26)" },
+      "400": { "$value": "oklch(0.718 0.182 27)" },
+      "500": { "$value": "oklch(0.637 0.208 25)" },
+      "600": { "$value": "oklch(0.577 0.215 27)" },
+      "700": { "$value": "oklch(0.505 0.190 27)" },
+      "800": { "$value": "oklch(0.430 0.160 28)" },
+      "900": { "$value": "oklch(0.370 0.130 28)" },
+      "950": { "$value": "oklch(0.262 0.090 28)" }
+    },
+
     "amber": {
       "400": { "$value": "oklch(0.828 0.155 80)" },
       "500": { "$value": "oklch(0.769 0.160 70)" }
     },
     "green": {
-      "$description": "Success — distinct (bluer) from the olive accent so status never reads as brand.",
+      "$description": "Success — distinct (bluer) from accents so status never reads as brand.",
       "500": { "$value": "oklch(0.700 0.150 162)" }
     }
   }

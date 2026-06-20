@@ -1,0 +1,16 @@
+{
+  "name": "warm",
+  "label": "Warm — consumer / expressive, light-first, friendly (coral)",
+  "neutral": "stone",
+  "accent": "coral",
+  "accentLight": "600",
+  "accentDark": "500",
+  "radius": "0.875rem",
+  "defaultMode": "light",
+  "signature": "soft",
+  "fonts": {
+    "sans": "\"Plus Jakarta Sans\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, sans-serif",
+    "mono": "\"IBM Plex Mono\", \"Pretendard Variable\", Pretendard, ui-monospace, SFMono-Regular, Menlo, monospace",
+    "display": "\"Plus Jakarta Sans\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, sans-serif"
+  }
+}

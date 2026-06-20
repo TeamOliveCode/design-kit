@@ -1,0 +1,16 @@
+{
+  "name": "editorial",
+  "label": "Editorial — content / magazine, light-first, serif display (claret)",
+  "neutral": "stone",
+  "accent": "red",
+  "accentLight": "700",
+  "accentDark": "500",
+  "radius": "0.1875rem",
+  "defaultMode": "light",
+  "signature": "hairline",
+  "fonts": {
+    "sans": "\"Hanken Grotesk\", \"Pretendard Variable\", Pretendard, ui-sans-serif, system-ui, -apple-system, sans-serif",
+    "mono": "\"IBM Plex Mono\", \"Pretendard Variable\", Pretendard, ui-monospace, SFMono-Regular, Menlo, monospace",
+    "display": "Fraunces, \"Pretendard Variable\", Pretendard, ui-serif, Georgia, \"Times New Roman\", serif"
+  }
+}
