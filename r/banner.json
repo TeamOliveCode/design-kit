@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "banner",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "apps/demo/src/components/ui/banner.tsx",
+      "content": "import * as React from 'react';\nimport { cva, type VariantProps } from 'class-variance-authority';\nimport { cn } from '@/lib/utils';\n\nconst bannerVariants = cva(\n  'flex items-center gap-3 rounded-lg border px-4 py-2.5 text-sm [&>svg]:size-4 [&>svg]:shrink-0',\n  {\n    variants: {\n      variant: {\n        default: 'border-border bg-card text-foreground [&>svg]:text-foreground',\n        info: 'border-primary/30 bg-primary/[0.07] text-foreground [&>svg]:text-primary',\n        warning: 'border-warning/30 bg-warning/10 text-foreground [&>svg]:text-warning',\n        destructive:\n          'border-destructive/30 bg-destructive/[0.07] text-foreground [&>svg]:text-destructive',\n      },\n    },\n    defaultVariants: { variant: 'default' },\n  },\n);\n\nexport interface BannerProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof bannerVariants> {\n  icon?: React.ReactNode;\n  action?: React.ReactNode;\n}\n\nexport const Banner = React.forwardRef<HTMLDivElement, BannerProps>(\n  ({ className, variant, icon, action, children, ...props }, ref) => (\n    <div ref={ref} className={cn(bannerVariants({ variant }), className)} {...props}>\n      {icon}\n      <div className=\"flex-1\">{children}</div>\n      {action && <div className=\"flex shrink-0 items-center gap-2\">{action}</div>}\n    </div>\n  ),\n);\nBanner.displayName = 'Banner';\n\nexport { bannerVariants };\n",
+      "type": "registry:ui",
+      "target": "components/ui/banner.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

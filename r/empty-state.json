@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-state",
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "apps/demo/src/components/ui/empty-state.tsx",
+      "content": "import * as React from 'react';\nimport { cn } from '@/lib/utils';\n\nexport interface EmptyStateProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {\n  icon?: React.ReactNode;\n  title: React.ReactNode;\n  description?: React.ReactNode;\n  action?: React.ReactNode;\n}\n\nexport const EmptyState = React.forwardRef<HTMLDivElement, EmptyStateProps>(\n  ({ className, icon, title, description, action, ...props }, ref) => (\n    <div\n      ref={ref}\n      className={cn(\n        'flex flex-col items-center justify-center gap-3 rounded-lg border border-dashed border-border p-10 text-center',\n        className,\n      )}\n      {...props}\n    >\n      {icon && (\n        <div className=\"flex size-12 items-center justify-center rounded-md bg-muted text-muted-foreground [&_svg]:size-6\">\n          {icon}\n        </div>\n      )}\n      <div className=\"flex flex-col gap-1\">\n        <h3 className=\"text-h4 font-semibold\">{title}</h3>\n        {description && (\n          <p className=\"max-w-sm text-sm text-muted-foreground\">{description}</p>\n        )}\n      </div>\n      {action && <div className=\"mt-1\">{action}</div>}\n    </div>\n  ),\n);\nEmptyState.displayName = 'EmptyState';\n",
+      "type": "registry:ui",
+      "target": "components/ui/empty-state.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

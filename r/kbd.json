@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kbd",
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "apps/demo/src/components/ui/kbd.tsx",
+      "content": "import * as React from 'react';\nimport { cn } from '@/lib/utils';\n\nexport function Kbd({ className, ...props }: React.HTMLAttributes<HTMLElement>) {\n  return (\n    <kbd\n      className={cn(\n        'inline-flex items-center gap-1 rounded border border-border bg-muted px-1.5 py-0.5 font-mono text-2xs text-muted-foreground',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/kbd.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

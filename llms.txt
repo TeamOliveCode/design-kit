@@ -27,31 +27,45 @@ Bootstrap a project with: `npx github:TeamOliveCode/design-kit init`.
 - Type roles: text-display-2xl…sm, text-h1…h6, text-body-lg/body/body-sm, text-label, text-caption, text-2xs, text-code, text-overline
 - Motion: ease-out (enter) / ease-in (exit) / ease-in-out / ease-brand; duration-fast/base/slow/slower
 
-## Components (25)
+## Components (39)
 - accordion: `npx shadcn add @olivekit/accordion`
 - alert: `npx shadcn add @olivekit/alert`
 - alert-dialog: `npx shadcn add @olivekit/alert-dialog`
+- aspect-ratio: `npx shadcn add @olivekit/aspect-ratio`
 - avatar: `npx shadcn add @olivekit/avatar`
 - badge: `npx shadcn add @olivekit/badge`
+- banner: `npx shadcn add @olivekit/banner`
+- breadcrumb: `npx shadcn add @olivekit/breadcrumb`
 - button: `npx shadcn add @olivekit/button`
 - card: `npx shadcn add @olivekit/card`
 - checkbox: `npx shadcn add @olivekit/checkbox`
+- collapsible: `npx shadcn add @olivekit/collapsible`
+- context-menu: `npx shadcn add @olivekit/context-menu`
 - dialog: `npx shadcn add @olivekit/dialog`
 - dropdown-menu: `npx shadcn add @olivekit/dropdown-menu`
+- empty-state: `npx shadcn add @olivekit/empty-state`
+- hover-card: `npx shadcn add @olivekit/hover-card`
 - input: `npx shadcn add @olivekit/input`
+- kbd: `npx shadcn add @olivekit/kbd`
 - label: `npx shadcn add @olivekit/label`
 - layout: `npx shadcn add @olivekit/layout`
+- pagination: `npx shadcn add @olivekit/pagination`
 - popover: `npx shadcn add @olivekit/popover`
 - progress: `npx shadcn add @olivekit/progress`
 - radio-group: `npx shadcn add @olivekit/radio-group`
+- scroll-area: `npx shadcn add @olivekit/scroll-area`
 - select: `npx shadcn add @olivekit/select`
 - separator: `npx shadcn add @olivekit/separator`
+- sheet: `npx shadcn add @olivekit/sheet`
 - skeleton: `npx shadcn add @olivekit/skeleton`
 - slider: `npx shadcn add @olivekit/slider`
 - spinner: `npx shadcn add @olivekit/spinner`
 - switch: `npx shadcn add @olivekit/switch`
+- table: `npx shadcn add @olivekit/table`
 - tabs: `npx shadcn add @olivekit/tabs`
 - textarea: `npx shadcn add @olivekit/textarea`
+- toggle: `npx shadcn add @olivekit/toggle`
+- toggle-group: `npx shadcn add @olivekit/toggle-group`
 - tooltip: `npx shadcn add @olivekit/tooltip`
 
 ## Enforce
