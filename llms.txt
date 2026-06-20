@@ -27,7 +27,7 @@ Bootstrap a project with: `npx github:TeamOliveCode/design-kit init`.
 - Type roles: text-display-2xl…sm, text-h1…h6, text-body-lg/body/body-sm, text-label, text-caption, text-2xs, text-code, text-overline
 - Motion: ease-out (enter) / ease-in (exit) / ease-in-out / ease-brand; duration-fast/base/slow/slower
 
-## Components (52)
+## Components (55)
 - accordion: `npx shadcn add @olivekit/accordion`
 - alert: `npx shadcn add @olivekit/alert`
 - alert-dialog: `npx shadcn add @olivekit/alert-dialog`
@@ -68,6 +68,7 @@ Bootstrap a project with: `npx github:TeamOliveCode/design-kit init`.
 - select: `npx shadcn add @olivekit/select`
 - separator: `npx shadcn add @olivekit/separator`
 - sheet: `npx shadcn add @olivekit/sheet`
+- sidebar: `npx shadcn add @olivekit/sidebar`
 - skeleton: `npx shadcn add @olivekit/skeleton`
 - slider: `npx shadcn add @olivekit/slider`
 - sonner: `npx shadcn add @olivekit/sonner`
@@ -77,9 +78,11 @@ Bootstrap a project with: `npx github:TeamOliveCode/design-kit init`.
 - table: `npx shadcn add @olivekit/table`
 - tabs: `npx shadcn add @olivekit/tabs`
 - textarea: `npx shadcn add @olivekit/textarea`
+- timeline: `npx shadcn add @olivekit/timeline`
 - toggle: `npx shadcn add @olivekit/toggle`
 - toggle-group: `npx shadcn add @olivekit/toggle-group`
 - tooltip: `npx shadcn add @olivekit/tooltip`
+- tree: `npx shadcn add @olivekit/tree`
 
 ## Enforce
 - `npm run lint:design` — deterministic guardrail (fails on ad-hoc color, banned font, em-dash, middle-dot, arbitrary text size, transition-all). Wire into CI.

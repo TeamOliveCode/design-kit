@@ -714,6 +714,20 @@
       ]
     },
     {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "apps/demo/src/components/ui/sidebar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/sidebar.tsx"
+        }
+      ]
+    },
+    {
       "name": "skeleton",
       "type": "registry:ui",
       "registryDependencies": [
@@ -855,6 +869,20 @@
       ]
     },
     {
+      "name": "timeline",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "apps/demo/src/components/ui/timeline.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/timeline.tsx"
+        }
+      ]
+    },
+    {
       "name": "toggle-group",
       "type": "registry:ui",
       "dependencies": [
@@ -905,6 +933,23 @@
           "path": "apps/demo/src/components/ui/tooltip.tsx",
           "type": "registry:ui",
           "target": "components/ui/tooltip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tree",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "apps/demo/src/components/ui/tree.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tree.tsx"
         }
       ]
     }

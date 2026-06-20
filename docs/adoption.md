@@ -53,6 +53,10 @@ Copy-once goes stale. The GitHub model keeps adopters current by **pulling, not 
 - `npm run lint:design` as a **pre-commit** hook (husky + lint-staged) and a **CI gate** (PR fails on any violation).
 - Optionally run Vercel's `web-design-guidelines` skill for the 100+ rule audit alongside.
 
+## F. MCP (natural-language component install for agents)
+
+The OliveKit registry is shadcn-compatible, so the **shadcn MCP server** browses and installs `@olivekit/*` by natural language with zero extra infra. Point an agent's MCP config at it (or run `npx shadcn@latest mcp`), then ask it to "add a login form" and it pulls the right components from our GitHub raw registry. For agents without MCP, `llms.txt` (at the repo root) is the machine-readable index of every rule, standard, expression, and component.
+
 ## E. Publish to GitHub (one-time, by the repo owner)
 
 ```bash
