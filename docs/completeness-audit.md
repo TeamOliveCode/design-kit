@@ -156,4 +156,8 @@ Encode positive rules three ways: (1) **machine-checkable** where possible — e
 
 ✅ **Done + live** (`github.com/TeamOliveCode/design-kit`): type roles (19) · motion system · **Korean/Pretendard** · elevation · data-viz · **expression layer + 3 expressions** (Instrument/Warm/Editorial, visually validated) · composition + content standards · layout primitives · **WCAG AA contrast 60/60 (verified, CI gate)** · reduced-motion · governance (semver/deprecation/changelog) · **llms.txt** + MCP wiring · cross-stack token outputs (TS/SCSS) · **web-component core** (Lit, framework-agnostic, proven) · ~54 components (shadcn parity + extras) · **presentation/deck surface** · CI gates (lint + typecheck + contrast).
 
-🟡 **Marginal / deferred (with reason)**: native Swift/Compose token outputs (React Native already covered by `tokens.ts`; native-native is niche, addable via Style Dictionary) · full RTL logical-property sweep across all components (LTR team; `content.md` documents the rule, partial) · `@playwright/test` visual-regression runner (governance documents the approach; lint+typecheck+contrast CI already gate drift) · `chart`/recharts component · a bespoke MCP server (shadcn MCP + llms.txt cover it).
+✅ **Also closed (no remaining deferrals)**: **native token outputs** (`tokens.swift` SwiftUI + `tokens.kt` Compose, OKLCH gamut-mapped to sRGB) · **RTL** (logical-property codemod across all components; LTR byte-identical, `dir=rtl` mirrors the whole layout, screenshot-verified) · **visual-regression** (`pnpm test:visual`, full-page baselines per surface, macOS CI gate) · **chart** (recharts wrapper on the data-viz tokens) · **bespoke MCP server** (`@olivekit/mcp`, 6 tools: components, standards, expressions, rules).
+
+**Distribution refinement:** `olivekit init` no longer appends to a project's CLAUDE.md; it writes the rules to a managed `.claude/olivekit.md` and pins an idempotent `@import` pointer.
+
+Nothing on the master checklist remains open.
