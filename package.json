@@ -13,6 +13,7 @@
     "build:demo": "pnpm build:tokens && pnpm --filter @olivekit/demo build",
     "lint:design": "node scripts/lint-design.mjs",
     "check:contrast": "node scripts/check-contrast.mjs",
+    "typecheck": "pnpm --filter @olivekit/demo exec tsc --noEmit",
     "build:registry": "node scripts/build-registry.mjs && npx shadcn@latest build registry.json -o r && node scripts/build-llms.mjs"
   },
   "pnpm": {

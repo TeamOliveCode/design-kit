@@ -27,7 +27,7 @@ Bootstrap a project with: `npx github:TeamOliveCode/design-kit init`.
 - Type roles: text-display-2xl…sm, text-h1…h6, text-body-lg/body/body-sm, text-label, text-caption, text-2xs, text-code, text-overline
 - Motion: ease-out (enter) / ease-in (exit) / ease-in-out / ease-brand; duration-fast/base/slow/slower
 
-## Components (45)
+## Components (52)
 - accordion: `npx shadcn add @olivekit/accordion`
 - alert: `npx shadcn add @olivekit/alert`
 - alert-dialog: `npx shadcn add @olivekit/alert-dialog`
@@ -37,17 +37,23 @@ Bootstrap a project with: `npx github:TeamOliveCode/design-kit init`.
 - banner: `npx shadcn add @olivekit/banner`
 - breadcrumb: `npx shadcn add @olivekit/breadcrumb`
 - button: `npx shadcn add @olivekit/button`
+- calendar: `npx shadcn add @olivekit/calendar`
 - card: `npx shadcn add @olivekit/card`
+- carousel: `npx shadcn add @olivekit/carousel`
 - checkbox: `npx shadcn add @olivekit/checkbox`
 - collapsible: `npx shadcn add @olivekit/collapsible`
 - combobox: `npx shadcn add @olivekit/combobox`
 - command: `npx shadcn add @olivekit/command`
 - context-menu: `npx shadcn add @olivekit/context-menu`
+- data-table: `npx shadcn add @olivekit/data-table`
 - dialog: `npx shadcn add @olivekit/dialog`
+- drawer: `npx shadcn add @olivekit/drawer`
 - dropdown-menu: `npx shadcn add @olivekit/dropdown-menu`
 - empty-state: `npx shadcn add @olivekit/empty-state`
+- form: `npx shadcn add @olivekit/form`
 - hover-card: `npx shadcn add @olivekit/hover-card`
 - input: `npx shadcn add @olivekit/input`
+- input-otp: `npx shadcn add @olivekit/input-otp`
 - kbd: `npx shadcn add @olivekit/kbd`
 - label: `npx shadcn add @olivekit/label`
 - layout: `npx shadcn add @olivekit/layout`
@@ -57,6 +63,7 @@ Bootstrap a project with: `npx github:TeamOliveCode/design-kit init`.
 - popover: `npx shadcn add @olivekit/popover`
 - progress: `npx shadcn add @olivekit/progress`
 - radio-group: `npx shadcn add @olivekit/radio-group`
+- resizable: `npx shadcn add @olivekit/resizable`
 - scroll-area: `npx shadcn add @olivekit/scroll-area`
 - select: `npx shadcn add @olivekit/select`
 - separator: `npx shadcn add @olivekit/separator`

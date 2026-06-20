@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "data-table",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils",
+    "table"
+  ],
+  "files": [
+    {
+      "path": "apps/demo/src/components/ui/data-table.tsx",
+      "content": "import * as React from 'react';\nimport {\n  type ColumnDef,\n  type SortingState,\n  flexRender,\n  getCoreRowModel,\n  getSortedRowModel,\n  useReactTable,\n} from '@tanstack/react-table';\nimport { ChevronDown, ChevronUp, ChevronsUpDown } from 'lucide-react';\nimport { cn } from '@/lib/utils';\nimport {\n  Table,\n  TableBody,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from './table';\n\nexport interface DataTableProps<TData, TValue> {\n  columns: ColumnDef<TData, TValue>[];\n  data: TData[];\n}\n\nexport function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {\n  const [sorting, setSorting] = React.useState<SortingState>([]);\n\n  const table = useReactTable({\n    data,\n    columns,\n    getCoreRowModel: getCoreRowModel(),\n    getSortedRowModel: getSortedRowModel(),\n    onSortingChange: setSorting,\n    state: { sorting },\n  });\n\n  return (\n    <div className=\"rounded-lg border border-border\">\n      <Table>\n        <TableHeader>\n          {table.getHeaderGroups().map((headerGroup) => (\n            <TableRow key={headerGroup.id}>\n              {headerGroup.headers.map((header) => {\n                const canSort = header.column.getCanSort();\n                const sorted = header.column.getIsSorted();\n                const SortIcon =\n                  sorted === 'asc'\n                    ? ChevronUp\n                    : sorted === 'desc'\n                      ? ChevronDown\n                      : ChevronsUpDown;\n                return (\n                  <TableHead key={header.id} colSpan={header.colSpan}>\n                    {header.isPlaceholder ? null : canSort ? (\n                      <button\n                        type=\"button\"\n                        onClick={header.column.getToggleSortingHandler()}\n                        className={cn(\n                          'inline-flex items-center gap-1.5 rounded-md font-medium transition-colors hover:text-foreground',\n                          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:ring-offset-background',\n                          sorted && 'text-foreground',\n                        )}\n                      >\n                        {flexRender(header.column.columnDef.header, header.getContext())}\n                        <SortIcon className=\"size-3.5 opacity-60\" />\n                      </button>\n                    ) : (\n                      flexRender(header.column.columnDef.header, header.getContext())\n                    )}\n                  </TableHead>\n                );\n              })}\n            </TableRow>\n          ))}\n        </TableHeader>\n        <TableBody>\n          {table.getRowModel().rows.length ? (\n            table.getRowModel().rows.map((row) => (\n              <TableRow key={row.id} data-state={row.getIsSelected() && 'selected'}>\n                {row.getVisibleCells().map((cell) => (\n                  <TableCell key={cell.id}>\n                    {flexRender(cell.column.columnDef.cell, cell.getContext())}\n                  </TableCell>\n                ))}\n              </TableRow>\n            ))\n          ) : (\n            <TableRow>\n              <TableCell\n                colSpan={columns.length}\n                className=\"h-24 text-center text-muted-foreground\"\n              >\n                No results.\n              </TableCell>\n            </TableRow>\n          )}\n        </TableBody>\n      </Table>\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/data-table.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

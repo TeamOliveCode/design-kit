@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "resizable",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "apps/demo/src/components/ui/resizable.tsx",
+      "content": "import * as React from 'react';\nimport { Group, Panel, Separator } from 'react-resizable-panels';\nimport { GripVertical } from 'lucide-react';\nimport { cn } from '@/lib/utils';\n\ntype Orientation = 'horizontal' | 'vertical';\n\nconst ResizableOrientationContext = React.createContext<Orientation>('horizontal');\n\nexport function ResizablePanelGroup({\n  className,\n  orientation = 'horizontal',\n  ...props\n}: React.ComponentProps<typeof Group>) {\n  return (\n    <ResizableOrientationContext.Provider value={orientation}>\n      <Group\n        orientation={orientation}\n        className={cn(\n          'flex h-full w-full data-[orientation=vertical]:flex-col',\n          orientation === 'vertical' && 'flex-col',\n          className,\n        )}\n        {...props}\n      />\n    </ResizableOrientationContext.Provider>\n  );\n}\nResizablePanelGroup.displayName = 'ResizablePanelGroup';\n\nexport const ResizablePanel = Panel;\n\nexport function ResizableHandle({\n  withHandle,\n  className,\n  ...props\n}: React.ComponentProps<typeof Separator> & { withHandle?: boolean }) {\n  const orientation = React.useContext(ResizableOrientationContext);\n  const isVertical = orientation === 'vertical';\n  return (\n    <Separator\n      className={cn(\n        'relative flex items-center justify-center bg-border',\n        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:ring-offset-background',\n        isVertical\n          ? 'h-px w-full after:absolute after:inset-x-0 after:top-1/2 after:h-1 after:-translate-y-1/2'\n          : 'w-px after:absolute after:inset-y-0 after:left-1/2 after:w-1 after:-translate-x-1/2',\n        className,\n      )}\n      {...props}\n    >\n      {withHandle && (\n        <div\n          className={cn(\n            'z-10 flex h-4 w-3 items-center justify-center rounded-sm border border-border bg-border',\n            isVertical && 'rotate-90',\n          )}\n        >\n          <GripVertical className=\"size-2.5\" />\n        </div>\n      )}\n    </Separator>\n  );\n}\nResizableHandle.displayName = 'ResizableHandle';\n",
+      "type": "registry:ui",
+      "target": "components/ui/resizable.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

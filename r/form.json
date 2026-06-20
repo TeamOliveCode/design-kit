@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "form",
+  "registryDependencies": [
+    "utils",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "apps/demo/src/components/ui/form.tsx",
+      "content": "import * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport { Label } from './label';\n\nexport const FormItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(\n  ({ className, ...props }, ref) => (\n    <div ref={ref} className={cn('space-y-2', className)} {...props} />\n  ),\n);\nFormItem.displayName = 'FormItem';\n\nexport const FormLabel = React.forwardRef<\n  React.ElementRef<typeof Label>,\n  React.ComponentPropsWithoutRef<typeof Label>\n>(({ className, ...props }, ref) => <Label ref={ref} className={className} {...props} />);\nFormLabel.displayName = 'FormLabel';\n\nexport const FormControl = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(\n  ({ className, ...props }, ref) => <div ref={ref} className={className} {...props} />,\n);\nFormControl.displayName = 'FormControl';\n\nexport const FormDescription = React.forwardRef<\n  HTMLParagraphElement,\n  React.HTMLAttributes<HTMLParagraphElement>\n>(({ className, ...props }, ref) => (\n  <p ref={ref} className={cn('text-sm text-muted-foreground', className)} {...props} />\n));\nFormDescription.displayName = 'FormDescription';\n\nexport const FormMessage = React.forwardRef<\n  HTMLParagraphElement,\n  React.HTMLAttributes<HTMLParagraphElement>\n>(({ className, children, ...props }, ref) => {\n  if (!children) return null;\n  return (\n    <p ref={ref} className={cn('text-sm font-medium text-destructive', className)} {...props}>\n      {children}\n    </p>\n  );\n});\nFormMessage.displayName = 'FormMessage';\n\nexport interface FieldProps extends React.HTMLAttributes<HTMLDivElement> {\n  label?: React.ReactNode;\n  description?: React.ReactNode;\n  message?: React.ReactNode;\n  htmlFor?: string;\n}\n\nexport const Field = React.forwardRef<HTMLDivElement, FieldProps>(\n  ({ label, description, message, htmlFor, className, children, ...props }, ref) => (\n    <FormItem ref={ref} className={className} {...props}>\n      {label ? <FormLabel htmlFor={htmlFor}>{label}</FormLabel> : null}\n      <FormControl>{children}</FormControl>\n      {description ? <FormDescription>{description}</FormDescription> : null}\n      <FormMessage>{message}</FormMessage>\n    </FormItem>\n  ),\n);\nField.displayName = 'Field';\n",
+      "type": "registry:ui",
+      "target": "components/ui/form.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

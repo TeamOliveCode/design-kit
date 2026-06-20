@@ -191,6 +191,24 @@
       ]
     },
     {
+      "name": "calendar",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "apps/demo/src/components/ui/calendar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/calendar.tsx"
+        }
+      ]
+    },
+    {
       "name": "card",
       "type": "registry:ui",
       "registryDependencies": [
@@ -201,6 +219,24 @@
           "path": "apps/demo/src/components/ui/card.tsx",
           "type": "registry:ui",
           "target": "components/ui/card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "apps/demo/src/components/ui/carousel.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/carousel.tsx"
         }
       ]
     },
@@ -296,6 +332,24 @@
       ]
     },
     {
+      "name": "data-table",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "apps/demo/src/components/ui/data-table.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/data-table.tsx"
+        }
+      ]
+    },
+    {
       "name": "dialog",
       "type": "registry:ui",
       "dependencies": [
@@ -310,6 +364,20 @@
           "path": "apps/demo/src/components/ui/dialog.tsx",
           "type": "registry:ui",
           "target": "components/ui/dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "apps/demo/src/components/ui/drawer.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/drawer.tsx"
         }
       ]
     },
@@ -346,6 +414,21 @@
       ]
     },
     {
+      "name": "form",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "utils",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "apps/demo/src/components/ui/form.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/form.tsx"
+        }
+      ]
+    },
+    {
       "name": "hover-card",
       "type": "registry:ui",
       "dependencies": [
@@ -359,6 +442,23 @@
           "path": "apps/demo/src/components/ui/hover-card.tsx",
           "type": "registry:ui",
           "target": "components/ui/hover-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "apps/demo/src/components/ui/input-otp.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input-otp.tsx"
         }
       ]
     },
@@ -525,6 +625,23 @@
           "path": "apps/demo/src/components/ui/radio-group.tsx",
           "type": "registry:ui",
           "target": "components/ui/radio-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "apps/demo/src/components/ui/resizable.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/resizable.tsx"
         }
       ]
     },
