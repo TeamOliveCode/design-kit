@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "apps/demo/src/components/ui/badge.tsx",
+      "content": "import * as React from 'react';\nimport { cva, type VariantProps } from 'class-variance-authority';\nimport { cn } from '@/lib/utils';\n\nconst badgeVariants = cva(\n  'inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium transition-colors',\n  {\n    variants: {\n      variant: {\n        default: 'border-transparent bg-primary/12 text-primary',\n        secondary: 'border-transparent bg-secondary text-secondary-foreground',\n        outline: 'border-border text-muted-foreground',\n        success: 'border-transparent bg-success/12 text-success',\n        warning: 'border-transparent bg-warning/15 text-warning',\n        destructive: 'border-transparent bg-destructive/12 text-destructive',\n      },\n    },\n    defaultVariants: { variant: 'default' },\n  },\n);\n\nexport interface BadgeProps\n  extends React.HTMLAttributes<HTMLSpanElement>,\n    VariantProps<typeof badgeVariants> {}\n\nexport function Badge({ className, variant, ...props }: BadgeProps) {\n  return <span className={cn(badgeVariants({ variant }), className)} {...props} />;\n}\n\nexport { badgeVariants };\n",
+      "type": "registry:ui",
+      "target": "components/ui/badge.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

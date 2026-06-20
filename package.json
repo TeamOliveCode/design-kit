@@ -1,0 +1,16 @@
+{
+  "name": "olivekit",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "packageManager": "pnpm@10.21.0",
+  "scripts": {
+    "build:tokens": "pnpm --filter @olivekit/tokens build",
+    "dev": "pnpm build:tokens && pnpm --filter @olivekit/demo dev",
+    "build:demo": "pnpm build:tokens && pnpm --filter @olivekit/demo build",
+    "lint:design": "node scripts/lint-design.mjs"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "@tailwindcss/oxide"]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@olivekit/tokens",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Framework-independent design tokens (DTCG) — single source, multi-output build.",
+  "files": ["dist", "src"],
+  "exports": {
+    "./css": "./dist/tokens.css",
+    "./json": "./dist/tokens.json",
+    "./theme": "./dist/theme.css"
+  },
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.3.0"
+  }
+}

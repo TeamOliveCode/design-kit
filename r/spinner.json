@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spinner",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "apps/demo/src/components/ui/spinner.tsx",
+      "content": "import * as React from 'react';\nimport { Loader2 } from 'lucide-react';\nimport { cn } from '@/lib/utils';\n\nexport function Spinner({ className, ...props }: React.ComponentProps<typeof Loader2>) {\n  return <Loader2 className={cn('size-4 animate-spin text-muted-foreground', className)} aria-label=\"Loading\" {...props} />;\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/spinner.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

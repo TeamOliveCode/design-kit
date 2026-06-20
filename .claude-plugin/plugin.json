@@ -1,0 +1,7 @@
+{
+  "name": "olivekit",
+  "version": "0.1.0",
+  "description": "OliveKit house design system. Keeps Claude Code on-system (Lab Instrument look, tokens-only, no AI slop) across every project.",
+  "author": { "name": "olivecode labs" },
+  "homepage": "https://github.com/TeamOliveCode/design-kit"
+}

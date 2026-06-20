@@ -1,0 +1,51 @@
+{
+  "$description": "Primitive tokens — the raw palette and scales. Build-time only; never referenced directly by components. Edit these to retune the whole system.",
+  "color": {
+    "$type": "color",
+    "white": { "$value": "oklch(1 0 0)" },
+    "black": { "$value": "oklch(0 0 0)" },
+
+    "olive": {
+      "$description": "Brand accent — electric lime-olive (Lab Instrument direction). Brighter and higher-chroma so it glows on near-black. On-brand (olivecode) and anti-cliché vs the purple/blue that dominates AI UI.",
+      "50":  { "$value": "oklch(0.975 0.025 128)" },
+      "100": { "$value": "oklch(0.950 0.052 128)" },
+      "200": { "$value": "oklch(0.912 0.092 128)" },
+      "300": { "$value": "oklch(0.875 0.135 128)" },
+      "400": { "$value": "oklch(0.832 0.170 128)" },
+      "500": { "$value": "oklch(0.785 0.188 128)" },
+      "600": { "$value": "oklch(0.700 0.172 128)" },
+      "700": { "$value": "oklch(0.585 0.142 128)" },
+      "800": { "$value": "oklch(0.480 0.114 128)" },
+      "900": { "$value": "oklch(0.390 0.090 128)" },
+      "950": { "$value": "oklch(0.270 0.060 128)" }
+    },
+
+    "ink": {
+      "$description": "Neutral ramp with a faint green tint (hue 150, very low chroma) so surfaces read as deliberate, not default gray.",
+      "50":  { "$value": "oklch(0.985 0.003 150)" },
+      "100": { "$value": "oklch(0.970 0.004 150)" },
+      "200": { "$value": "oklch(0.922 0.006 150)" },
+      "300": { "$value": "oklch(0.870 0.008 150)" },
+      "400": { "$value": "oklch(0.708 0.010 150)" },
+      "500": { "$value": "oklch(0.556 0.012 150)" },
+      "600": { "$value": "oklch(0.440 0.012 150)" },
+      "700": { "$value": "oklch(0.370 0.012 150)" },
+      "800": { "$value": "oklch(0.269 0.010 150)" },
+      "900": { "$value": "oklch(0.205 0.008 150)" },
+      "950": { "$value": "oklch(0.145 0.006 150)" }
+    },
+
+    "red": {
+      "500": { "$value": "oklch(0.637 0.208 25)" },
+      "600": { "$value": "oklch(0.577 0.215 27)" }
+    },
+    "amber": {
+      "400": { "$value": "oklch(0.828 0.155 80)" },
+      "500": { "$value": "oklch(0.769 0.160 70)" }
+    },
+    "green": {
+      "$description": "Success — distinct (bluer) from the olive accent so status never reads as brand.",
+      "500": { "$value": "oklch(0.700 0.150 162)" }
+    }
+  }
+}

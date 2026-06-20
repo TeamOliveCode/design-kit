@@ -1,0 +1,8 @@
+{
+  "$description": "Type scale config — display sizes for marketing/landing + supporting roles. Body sizes (sm/base/lg) use Tailwind defaults. size + line + tracking are emitted as Tailwind v4 --text-* companion properties, so one utility class carries all three (no scattered tracking-tight).",
+  "display-2xl": { "size": "4.5rem", "line": "1.02", "tracking": "-0.022em" },
+  "display-xl": { "size": "3.5rem", "line": "1.05", "tracking": "-0.02em" },
+  "display-lg": { "size": "2.75rem", "line": "1.08", "tracking": "-0.018em" },
+  "display-md": { "size": "2rem", "line": "1.15", "tracking": "-0.012em" },
+  "display-sm": { "size": "1.5rem", "line": "1.25", "tracking": "-0.01em" }
+}

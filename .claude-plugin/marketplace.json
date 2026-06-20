@@ -1,0 +1,11 @@
+{
+  "name": "olivecode",
+  "owner": { "name": "olivecode labs" },
+  "plugins": [
+    {
+      "name": "olivekit",
+      "source": "./",
+      "description": "OliveKit house design system rules + the olivekit-design skill."
+    }
+  ]
+}

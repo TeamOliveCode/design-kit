@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "separator",
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "apps/demo/src/components/ui/separator.tsx",
+      "content": "import * as React from 'react';\nimport { cn } from '@/lib/utils';\n\nexport function Separator({\n  className,\n  orientation = 'horizontal',\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { orientation?: 'horizontal' | 'vertical' }) {\n  return (\n    <div\n      role=\"separator\"\n      className={cn(\n        'shrink-0 bg-border',\n        orientation === 'horizontal' ? 'h-px w-full' : 'h-full w-px',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/separator.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,17 @@
+node_modules/
+dist/
+build/
+*.log
+.DS_Store
+.vite/
+.turbo/
+*.local
+
+# local screenshots / playwright scratch
+/*.png
+/*.jpeg
+/*.jpg
+.playwright-mcp/
+
+# codegraph local index
+.codegraph/

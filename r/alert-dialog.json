@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert-dialog",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "utils",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "apps/demo/src/components/ui/alert-dialog.tsx",
+      "content": "import * as React from 'react';\nimport { AlertDialog as AlertDialogPrimitive } from 'radix-ui';\nimport { cn } from '@/lib/utils';\nimport { buttonVariants } from './button';\n\nexport const AlertDialog = AlertDialogPrimitive.Root;\nexport const AlertDialogTrigger = AlertDialogPrimitive.Trigger;\n\nconst AlertDialogOverlay = React.forwardRef<\n  React.ElementRef<typeof AlertDialogPrimitive.Overlay>,\n  React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Overlay>\n>(({ className, ...props }, ref) => (\n  <AlertDialogPrimitive.Overlay\n    ref={ref}\n    className={cn(\n      'fixed inset-0 z-50 bg-black/50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',\n      className,\n    )}\n    {...props}\n  />\n));\nAlertDialogOverlay.displayName = 'AlertDialogOverlay';\n\nexport const AlertDialogContent = React.forwardRef<\n  React.ElementRef<typeof AlertDialogPrimitive.Content>,\n  React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Content>\n>(({ className, ...props }, ref) => (\n  <AlertDialogPrimitive.Portal>\n    <AlertDialogOverlay />\n    <AlertDialogPrimitive.Content\n      ref={ref}\n      className={cn(\n        'fixed left-1/2 top-1/2 z-50 grid w-full max-w-md -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl border border-border bg-card p-6 shadow-card duration-200',\n        'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',\n        className,\n      )}\n      {...props}\n    />\n  </AlertDialogPrimitive.Portal>\n));\nAlertDialogContent.displayName = 'AlertDialogContent';\n\nexport function AlertDialogHeader({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {\n  return <div className={cn('flex flex-col gap-1.5 text-left', className)} {...props} />;\n}\nexport function AlertDialogFooter({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {\n  return <div className={cn('flex flex-col-reverse gap-2 sm:flex-row sm:justify-end', className)} {...props} />;\n}\n\nexport const AlertDialogTitle = React.forwardRef<\n  React.ElementRef<typeof AlertDialogPrimitive.Title>,\n  React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Title>\n>(({ className, ...props }, ref) => (\n  <AlertDialogPrimitive.Title ref={ref} className={cn('text-lg font-semibold tracking-tight', className)} {...props} />\n));\nAlertDialogTitle.displayName = 'AlertDialogTitle';\n\nexport const AlertDialogDescription = React.forwardRef<\n  React.ElementRef<typeof AlertDialogPrimitive.Description>,\n  React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Description>\n>(({ className, ...props }, ref) => (\n  <AlertDialogPrimitive.Description ref={ref} className={cn('text-sm text-muted-foreground', className)} {...props} />\n));\nAlertDialogDescription.displayName = 'AlertDialogDescription';\n\nexport const AlertDialogAction = React.forwardRef<\n  React.ElementRef<typeof AlertDialogPrimitive.Action>,\n  React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Action>\n>(({ className, ...props }, ref) => (\n  <AlertDialogPrimitive.Action ref={ref} className={cn(buttonVariants(), className)} {...props} />\n));\nAlertDialogAction.displayName = 'AlertDialogAction';\n\nexport const AlertDialogCancel = React.forwardRef<\n  React.ElementRef<typeof AlertDialogPrimitive.Cancel>,\n  React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Cancel>\n>(({ className, ...props }, ref) => (\n  <AlertDialogPrimitive.Cancel ref={ref} className={cn(buttonVariants({ variant: 'outline' }), className)} {...props} />\n));\nAlertDialogCancel.displayName = 'AlertDialogCancel';\n",
+      "type": "registry:ui",
+      "target": "components/ui/alert-dialog.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

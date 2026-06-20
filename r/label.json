@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "label",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "apps/demo/src/components/ui/label.tsx",
+      "content": "import * as React from 'react';\nimport { Label as LabelPrimitive } from 'radix-ui';\nimport { cn } from '@/lib/utils';\n\nexport const Label = React.forwardRef<\n  React.ElementRef<typeof LabelPrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>\n>(({ className, ...props }, ref) => (\n  <LabelPrimitive.Root\n    ref={ref}\n    className={cn(\n      'text-sm font-medium leading-none select-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50',\n      className,\n    )}\n    {...props}\n  />\n));\nLabel.displayName = 'Label';\n",
+      "type": "registry:ui",
+      "target": "components/ui/label.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

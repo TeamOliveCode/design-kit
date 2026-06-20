@@ -1,0 +1,8 @@
+{
+  "name": "@olivekit/cli",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Apply OliveKit to any project in one command.",
+  "bin": { "olivekit": "./bin.mjs" }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "apps/demo/src/components/ui/avatar.tsx",
+      "content": "import * as React from 'react';\nimport { Avatar as AvatarPrimitive } from 'radix-ui';\nimport { cn } from '@/lib/utils';\n\nexport const Avatar = React.forwardRef<\n  React.ElementRef<typeof AvatarPrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>\n>(({ className, ...props }, ref) => (\n  <AvatarPrimitive.Root ref={ref} className={cn('relative flex size-9 shrink-0 overflow-hidden rounded-full', className)} {...props} />\n));\nAvatar.displayName = 'Avatar';\n\nexport const AvatarImage = React.forwardRef<\n  React.ElementRef<typeof AvatarPrimitive.Image>,\n  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>\n>(({ className, ...props }, ref) => (\n  <AvatarPrimitive.Image ref={ref} className={cn('aspect-square size-full object-cover', className)} {...props} />\n));\nAvatarImage.displayName = 'AvatarImage';\n\nexport const AvatarFallback = React.forwardRef<\n  React.ElementRef<typeof AvatarPrimitive.Fallback>,\n  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>\n>(({ className, ...props }, ref) => (\n  <AvatarPrimitive.Fallback\n    ref={ref}\n    className={cn('flex size-full items-center justify-center rounded-full bg-secondary font-mono text-xs font-semibold text-secondary-foreground', className)}\n    {...props}\n  />\n));\nAvatarFallback.displayName = 'AvatarFallback';\n",
+      "type": "registry:ui",
+      "target": "components/ui/avatar.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}
