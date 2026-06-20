@@ -12,7 +12,7 @@ export const Timeline = React.forwardRef<HTMLOListElement, React.HTMLAttributes<
 );
 Timeline.displayName = 'Timeline';
 
-export interface TimelineItemProps extends React.HTMLAttributes<HTMLLIElement> {
+export interface TimelineItemProps extends Omit<React.HTMLAttributes<HTMLLIElement>, 'title'> {
   title: React.ReactNode;
   time?: React.ReactNode;
   icon?: React.ReactNode;
