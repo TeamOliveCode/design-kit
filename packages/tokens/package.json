@@ -14,6 +14,8 @@
     "./json": "./dist/tokens.json",
     "./ts": "./dist/tokens.ts",
     "./scss": "./dist/tokens.scss",
+    "./swift": "./dist/tokens.swift",
+    "./kt": "./dist/tokens.kt",
     "./scoped": "./dist/expressions-scoped.css",
     "./instrument": "./dist/expressions/instrument.css",
     "./warm": "./dist/expressions/warm.css",

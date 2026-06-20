@@ -6,6 +6,7 @@
 // changes. Type roles + motion are shared across expressions. Light/dark are :root / .dark within each.
 import { promises as fs } from 'node:fs';
 import { readdirSync } from 'node:fs';
+import { formatHex } from 'culori';
 
 const SRC = 'src';
 const OUT = 'dist';
@@ -179,6 +180,23 @@ const scssVars = Object.entries(audit.instrument.light)
 await fs.writeFile(
   `${OUT}/tokens.scss`,
   `// @olivekit/tokens — GENERATED (instrument, light). For runtime theming use the CSS variables instead.\n${scssVars}\n`,
+);
+
+// Native (iOS / Android) outputs: OKLCH gamut-mapped to sRGB hex per mode, for the default expression.
+const camel = (k) => k.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+const hex = (v) => (formatHex(v) || '#000000').toUpperCase();
+const colorKeys = Object.keys(audit.instrument.light).filter((k) => k !== 'radius');
+const swiftProps = (mode, indent) =>
+  colorKeys.map((k) => `${indent}static let ${camel(k)} = Color(hex: "${hex(audit.instrument[mode][k])}")`).join('\n');
+await fs.writeFile(
+  `${OUT}/tokens.swift`,
+  `// @olivekit/tokens — GENERATED. SwiftUI colors (instrument). Use OliveKitColor.* and OliveKitColor.Dark.*\nimport SwiftUI\n\npublic extension Color {\n    init(hex: String) {\n        let s = Scanner(string: hex.hasPrefix("#") ? String(hex.dropFirst()) : hex)\n        var v: UInt64 = 0; s.scanHexInt64(&v)\n        self.init(.sRGB, red: Double((v >> 16) & 0xff) / 255, green: Double((v >> 8) & 0xff) / 255, blue: Double(v & 0xff) / 255, opacity: 1)\n    }\n}\n\npublic enum OliveKitColor {\n${swiftProps('light', '    ')}\n\n    public enum Dark {\n${swiftProps('dark', '        ')}\n    }\n}\n`,
+);
+const ktProps = (mode, indent) =>
+  colorKeys.map((k) => `${indent}val ${camel(k)} = Color(0xFF${hex(audit.instrument[mode][k]).slice(1)})`).join('\n');
+await fs.writeFile(
+  `${OUT}/tokens.kt`,
+  `// @olivekit/tokens — GENERATED. Jetpack Compose colors (instrument). Use OliveKitColors.* and OliveKitColors.Dark.*\nimport androidx.compose.ui.graphics.Color\n\nobject OliveKitColors {\n${ktProps('light', '    ')}\n\n    object Dark {\n${ktProps('dark', '        ')}\n    }\n}\n`,
 );
 
 console.log(`✓ @olivekit/tokens built → expressions/{${built.map((e) => e.name).join(', ')}}.css + tokens.css/theme.css (default: instrument)`);
