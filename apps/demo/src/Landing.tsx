@@ -50,7 +50,7 @@ export default function Landing() {
               <span className="grid size-7 place-items-center rounded-md bg-primary text-primary-foreground">
                 <FlaskConical className="size-4" />
               </span>
-              <span className="text-[0.95rem] font-bold tracking-tight">OliveKit</span>
+              <span className="text-base font-bold tracking-tight">OliveKit</span>
             </a>
             <nav className="hidden items-center gap-7 md:flex">
               {NAV.map((item) => (
@@ -192,7 +192,7 @@ export default function Landing() {
                 <ul className="mt-5 space-y-2 text-sm">
                   {SLOP.map((s) => (
                     <li key={s} className="flex items-center gap-2.5 text-muted-foreground">
-                      <span className="grid size-4 place-items-center rounded-full border border-border text-[0.6rem] text-muted-foreground">✕</span>
+                      <span className="grid size-4 place-items-center rounded-full border border-border text-2xs text-muted-foreground">✕</span>
                       <span className="line-through decoration-border">{s}</span>
                     </li>
                   ))}

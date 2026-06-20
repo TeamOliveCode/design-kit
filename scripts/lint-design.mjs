@@ -16,6 +16,7 @@ const RULES = [
   { id: 'no-em-dash', re: /—/, msg: 'em-dash in copy (AI tell) — use a comma, colon, or parentheses' },
   { id: 'no-middle-dot', re: /·/, msg: 'middle-dot separator (AI tell) — use a slash, comma, or restructure' },
   { id: 'no-transition-all', re: /\btransition-all\b/, msg: 'transition-all — animate transform/opacity or named properties only' },
+  { id: 'no-arbitrary-text-size', re: /\btext-\[[0-9.]+(?:rem|px|em)\]/, msg: 'arbitrary font size — use a type role (text-h1 … text-body … text-caption … text-2xs)' },
 ];
 
 const files = [];

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "layout",
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "apps/demo/src/components/ui/layout.tsx",
+      "content": "import * as React from 'react';\nimport { cn } from '@/lib/utils';\n\n// Layout primitives make composition deterministic: reach for these instead of ad-hoc flex/grid,\n// and pass a gap from the spacing scale rather than arbitrary margins. See docs/standards/composition.md.\n\nconst GAP: Record<number, string> = {\n  0: 'gap-0', 1: 'gap-1', 2: 'gap-2', 3: 'gap-3', 4: 'gap-4',\n  5: 'gap-5', 6: 'gap-6', 8: 'gap-8', 10: 'gap-10', 12: 'gap-12', 16: 'gap-16',\n};\nconst COLS: Record<number, string> = {\n  1: 'grid-cols-1', 2: 'grid-cols-2', 3: 'grid-cols-3', 4: 'grid-cols-4', 5: 'grid-cols-5', 6: 'grid-cols-6', 12: 'grid-cols-12',\n};\nconst MAXW = {\n  app: 'max-w-[1180px]',\n  landing: 'max-w-[1140px]',\n  reading: 'max-w-[720px]',\n  prose: 'max-w-prose',\n} as const;\n\nexport function Container({\n  size = 'app',\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { size?: keyof typeof MAXW }) {\n  return <div className={cn('mx-auto w-full px-6', MAXW[size], className)} {...props} />;\n}\n\n/** Vertical rhythm. */\nexport function Stack({ gap = 4, className, ...props }: React.HTMLAttributes<HTMLDivElement> & { gap?: keyof typeof GAP }) {\n  return <div className={cn('flex flex-col', GAP[gap], className)} {...props} />;\n}\n\n/** Horizontal group that wraps. */\nexport function Cluster({ gap = 3, className, ...props }: React.HTMLAttributes<HTMLDivElement> & { gap?: keyof typeof GAP }) {\n  return <div className={cn('flex flex-wrap items-center', GAP[gap], className)} {...props} />;\n}\n\nexport function Grid({\n  cols = 3,\n  gap = 4,\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { cols?: keyof typeof COLS; gap?: keyof typeof GAP }) {\n  return <div className={cn('grid', COLS[cols], GAP[gap], className)} {...props} />;\n}\n\n/** Pushes siblings apart in a flex row/column. */\nexport function Spacer() {\n  return <div className=\"flex-1\" aria-hidden />;\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/layout.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

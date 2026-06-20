@@ -34,6 +34,10 @@ Purple/blue gradients, gradient-on-white, glassmorphism everywhere. A colored st
 - App / Product UI: dense, dark, mono data, dot status. See `docs/standards/app-ui.md`.
 - Landing / Marketing: airy, big display type, one signature, restrained olive. See `docs/standards/landing.md`.
 
+## Composition & content (when to use what)
+
+Pick the type role by meaning, never an arbitrary size (`text-display-2xl` hero … `text-h2` section … `text-body` … `text-caption` meta … `font-mono` data). One display per page, body measure 60-75ch, group with spacing not nested cards, one primary action + one accent per view, use the layout primitives. Copy: sentence case + controlled action verbs + designed empty/loading/error states. See `docs/standards/composition.md` and `docs/standards/content.md`.
+
 ## Before you ship
 
 Run `npm run lint:design`. Then eyeball against the anti-AI checklist. If anything could have been generated for any other brand, it is off-system - revise it.

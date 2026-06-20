@@ -31,8 +31,14 @@ Purple/blue gradients, gradient-on-white, glassmorphism everywhere. A colored st
 2. **Self-critique before writing code.** Work the plan against `https://github.com/TeamOliveCode/design-kit/blob/main/docs/standards/anti-ai-patterns.md`. If any choice could read as generic AI or off-system, revise it and say what you changed. Then build, deriving every value from tokens.
 3. **After building**, run `npm run lint:design`, then eyeball against the anti-AI checklist. If the result could have been generated for any other brand, it is off-system; revise.
 
+## Composition — when to use what (positive rules, not just tokens)
+
+Pick the type role by meaning, never an arbitrary size: hero `text-display-2xl`, page title `text-display-sm`/`text-h1`, section `text-h2`, card title `text-h4`, body `text-body`/`text-sm`, meta `text-caption`, data `font-mono`/`text-code`. One display per page. Body measure 60-75ch (`max-w-[68ch]`). Group with spacing not nested cards; one density per surface; one primary action and one accent moment per view. Use the layout primitives (Container/Stack/Cluster/Grid). Full rules: composition.md. Copy: sentence case, controlled action verbs (Log in, Start, Back, Apply), designed empty/loading/error states — content.md.
+
 ## Reach for
 
+- Composition (when → what: type/spacing/layout): `https://github.com/TeamOliveCode/design-kit/blob/main/docs/standards/composition.md`
+- Content & voice (action vocabulary, state copy, i18n): `https://github.com/TeamOliveCode/design-kit/blob/main/docs/standards/content.md`
 - App / product UI (dense, dark, mono data, dot status): `https://github.com/TeamOliveCode/design-kit/blob/main/docs/standards/app-ui.md`
 - Landing / marketing (airy, big display type, one signature): `https://github.com/TeamOliveCode/design-kit/blob/main/docs/standards/landing.md`
 - Component anatomy and depth bar: `https://github.com/TeamOliveCode/design-kit/blob/main/docs/standards/components.md`

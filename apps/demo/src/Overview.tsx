@@ -144,7 +144,7 @@ export default function Overview() {
                     {OLIVE.map(([k, v]) => (
                       <div key={k} className="flex-1">
                         <div className="h-12 rounded" style={{ background: v }} />
-                        <p className="mt-1 text-center font-mono text-[0.6rem] text-muted-foreground">{k}</p>
+                        <p className="mt-1 text-center font-mono text-2xs text-muted-foreground">{k}</p>
                       </div>
                     ))}
                   </div>
@@ -154,7 +154,7 @@ export default function Overview() {
                     {INK.map(([k, v]) => (
                       <div key={k} className="flex-1">
                         <div className="h-12 rounded border border-border/50" style={{ background: v }} />
-                        <p className="mt-1 text-center font-mono text-[0.6rem] text-muted-foreground">{k}</p>
+                        <p className="mt-1 text-center font-mono text-2xs text-muted-foreground">{k}</p>
                       </div>
                     ))}
                   </div>
@@ -188,7 +188,7 @@ export default function Overview() {
                       {[['sm', 'rounded-sm'], ['md', 'rounded-md'], ['lg', 'rounded-lg'], ['xl', 'rounded-xl']].map(([k, c]) => (
                         <div key={k} className="text-center">
                           <div className={`size-12 border border-primary/50 bg-primary/10 ${c}`} />
-                          <p className="mt-1 font-mono text-[0.6rem] text-muted-foreground">{k}</p>
+                          <p className="mt-1 font-mono text-2xs text-muted-foreground">{k}</p>
                         </div>
                       ))}
                     </div>
@@ -344,7 +344,7 @@ export default function Overview() {
                 <div className="overflow-hidden rounded-xl border border-border bg-card">
                   <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
                     <span className="flex items-center gap-2 font-mono text-xs text-muted-foreground"><span className="size-2 rounded-full bg-primary" />App / Product UI</span>
-                    <span className="font-mono text-[0.65rem] text-muted-foreground">dense / dark</span>
+                    <span className="font-mono text-2xs text-muted-foreground">dense / dark</span>
                   </div>
                   <div className="divide-y divide-border">
                     {[['retrieval-rerank ablation', 'bg-primary', 'Running'], ['long-context recall sweep', 'bg-success', 'Passed'], ['speculative decode latency', 'bg-destructive', 'Failed']].map(([n, d, s]) => (
@@ -360,7 +360,7 @@ export default function Overview() {
                 <div className="relative overflow-hidden rounded-xl border border-border bg-card p-6">
                   <div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(50% 60% at 80% 20%, oklch(0.785 0.188 128 / 0.16), transparent 70%)' }} />
                   <div className="relative">
-                    <span className="flex items-center gap-2 font-mono text-xs text-muted-foreground"><span className="size-2 rounded-full bg-primary" />Landing / Marketing<span className="ml-auto font-mono text-[0.65rem]">airy / expressive</span></span>
+                    <span className="flex items-center gap-2 font-mono text-xs text-muted-foreground"><span className="size-2 rounded-full bg-primary" />Landing / Marketing<span className="ml-auto font-mono text-2xs">airy / expressive</span></span>
                     <p className="mt-5 text-display-sm font-extrabold leading-tight">Ship one house look.</p>
                     <p className="mt-2 text-sm text-muted-foreground">Big type, generous space, one signature.</p>
                     <div className="mt-4"><a href="#/landing"><Button size="sm">open #/landing<ArrowRight className="size-4" /></Button></a></div>
@@ -376,7 +376,7 @@ export default function Overview() {
                   <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                     {SLOP.map((s) => (
                       <li key={s} className="flex items-center gap-2.5 text-sm text-muted-foreground">
-                        <span className="grid size-4 place-items-center rounded-full border border-border text-[0.6rem]">✕</span>
+                        <span className="grid size-4 place-items-center rounded-full border border-border text-2xs">✕</span>
                         <span className="line-through decoration-border">{s}</span>
                       </li>
                     ))}

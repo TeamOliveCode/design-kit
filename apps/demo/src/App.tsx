@@ -68,7 +68,7 @@ export default function App() {
             <span className="grid size-7 place-items-center rounded-md bg-primary text-primary-foreground">
               <FlaskConical className="size-4" />
             </span>
-            <span className="text-[0.95rem] font-bold tracking-tight">
+            <span className="text-base font-bold tracking-tight">
               olivecode
               <span className="font-mono text-sm font-medium text-muted-foreground">/labs</span>
             </span>
@@ -95,7 +95,7 @@ export default function App() {
           <div className="relative ml-auto hidden w-64 items-center lg:flex">
             <Search className="pointer-events-none absolute left-2.5 size-4 text-muted-foreground" />
             <Input placeholder="Search experiments" className="pl-8.5 pr-12" />
-            <kbd className="pointer-events-none absolute right-2 flex items-center gap-0.5 rounded border border-border bg-muted px-1.5 py-0.5 font-mono text-[0.65rem] text-muted-foreground">
+            <kbd className="pointer-events-none absolute right-2 flex items-center gap-0.5 rounded border border-border bg-muted px-1.5 py-0.5 font-mono text-2xs text-muted-foreground">
               <Command className="size-3" />K
             </kbd>
           </div>

@@ -239,6 +239,20 @@
       ]
     },
     {
+      "name": "layout",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "apps/demo/src/components/ui/layout.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/layout.tsx"
+        }
+      ]
+    },
+    {
       "name": "popover",
       "type": "registry:ui",
       "dependencies": [
