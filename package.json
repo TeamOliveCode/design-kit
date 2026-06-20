@@ -9,7 +9,8 @@
     "build:tokens": "pnpm --filter @olivekit/tokens build",
     "dev": "pnpm build:tokens && pnpm --filter @olivekit/demo dev",
     "build:demo": "pnpm build:tokens && pnpm --filter @olivekit/demo build",
-    "lint:design": "node scripts/lint-design.mjs"
+    "lint:design": "node scripts/lint-design.mjs",
+    "build:registry": "node scripts/build-registry.mjs && npx shadcn@latest build registry.json -o r && node scripts/build-llms.mjs"
   },
   "pnpm": {
     "onlyBuiltDependencies": ["esbuild", "@tailwindcss/oxide"]

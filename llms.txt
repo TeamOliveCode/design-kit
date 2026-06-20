@@ -1,0 +1,58 @@
+# OliveKit
+
+> Claude Code-native design system. One house look across every project our team ships, applied by the agent and enforced so nothing drifts off-system or reads as generic AI.
+
+Pull components with: `npx shadcn@latest add @olivekit/<name>` (registry served from GitHub raw, no server).
+Bootstrap a project with: `npx github:TeamOliveCode/design-kit init`.
+
+## Rules (read first)
+- House rules (auto-loaded each session): https://raw.githubusercontent.com/TeamOliveCode/design-kit/main/CLAUDE.md
+- Design skill (how to apply): https://raw.githubusercontent.com/TeamOliveCode/design-kit/main/skills/olivekit-design/SKILL.md
+
+## Standards
+- Composition — when to use which type role, measure, spacing, layout, hierarchy: https://raw.githubusercontent.com/TeamOliveCode/design-kit/main/docs/standards/composition.md
+- Content & voice — action vocabulary, state copy, i18n: https://raw.githubusercontent.com/TeamOliveCode/design-kit/main/docs/standards/content.md
+- Anti-AI patterns — the enforced "no AI smell" list: https://raw.githubusercontent.com/TeamOliveCode/design-kit/main/docs/standards/anti-ai-patterns.md
+- App / product UI surface: https://raw.githubusercontent.com/TeamOliveCode/design-kit/main/docs/standards/app-ui.md
+- Landing / marketing surface: https://raw.githubusercontent.com/TeamOliveCode/design-kit/main/docs/standards/landing.md
+- Component depth bar: https://raw.githubusercontent.com/TeamOliveCode/design-kit/main/docs/standards/components.md
+
+## Expressions (pick one per project; same components, different soul)
+- instrument — utility / SaaS, dark-first, electric olive: https://raw.githubusercontent.com/TeamOliveCode/design-kit/main/packages/tokens/dist/expressions/instrument.css
+- warm — consumer / expressive, light-first, coral: https://raw.githubusercontent.com/TeamOliveCode/design-kit/main/packages/tokens/dist/expressions/warm.css
+- editorial — content / magazine, serif display, claret: https://raw.githubusercontent.com/TeamOliveCode/design-kit/main/packages/tokens/dist/expressions/editorial.css
+
+## Tokens
+- Semantic CSS variables + Tailwind v4 @theme (default expression): `npx shadcn add @olivekit/tokens`
+- Type roles: text-display-2xl…sm, text-h1…h6, text-body-lg/body/body-sm, text-label, text-caption, text-2xs, text-code, text-overline
+- Motion: ease-out (enter) / ease-in (exit) / ease-in-out / ease-brand; duration-fast/base/slow/slower
+
+## Components (25)
+- accordion: `npx shadcn add @olivekit/accordion`
+- alert: `npx shadcn add @olivekit/alert`
+- alert-dialog: `npx shadcn add @olivekit/alert-dialog`
+- avatar: `npx shadcn add @olivekit/avatar`
+- badge: `npx shadcn add @olivekit/badge`
+- button: `npx shadcn add @olivekit/button`
+- card: `npx shadcn add @olivekit/card`
+- checkbox: `npx shadcn add @olivekit/checkbox`
+- dialog: `npx shadcn add @olivekit/dialog`
+- dropdown-menu: `npx shadcn add @olivekit/dropdown-menu`
+- input: `npx shadcn add @olivekit/input`
+- label: `npx shadcn add @olivekit/label`
+- layout: `npx shadcn add @olivekit/layout`
+- popover: `npx shadcn add @olivekit/popover`
+- progress: `npx shadcn add @olivekit/progress`
+- radio-group: `npx shadcn add @olivekit/radio-group`
+- select: `npx shadcn add @olivekit/select`
+- separator: `npx shadcn add @olivekit/separator`
+- skeleton: `npx shadcn add @olivekit/skeleton`
+- slider: `npx shadcn add @olivekit/slider`
+- spinner: `npx shadcn add @olivekit/spinner`
+- switch: `npx shadcn add @olivekit/switch`
+- tabs: `npx shadcn add @olivekit/tabs`
+- textarea: `npx shadcn add @olivekit/textarea`
+- tooltip: `npx shadcn add @olivekit/tooltip`
+
+## Enforce
+- `npm run lint:design` — deterministic guardrail (fails on ad-hoc color, banned font, em-dash, middle-dot, arbitrary text size, transition-all). Wire into CI.
