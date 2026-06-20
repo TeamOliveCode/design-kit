@@ -60,6 +60,8 @@ importers:
         specifier: ^6.0.0
         version: 6.4.3(jiti@2.7.0)(lightningcss@1.32.0)(yaml@2.9.0)
 
+  packages/cli: {}
+
   packages/tokens:
     devDependencies:
       style-dictionary:

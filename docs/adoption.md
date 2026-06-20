@@ -6,6 +6,12 @@ Everything ships from the GitHub repo. There is no registry server to run.
 - Bootstrap CLI: `npx github:TeamOliveCode/design-kit init`.
 - Guardrail: `scripts/lint-design.mjs` (`npm run lint:design`).
 
+## Requirements and version pinning
+
+- **Components** require **React + Tailwind v4** (they use the `@theme` directive and Radix primitives).
+- **Tokens** (the CSS variables in `tokens.css`) work in **any** stack: Vue, Svelte, server-rendered, plain CSS. Import them and use `var(--primary)`, `var(--background)`, etc. Non-React stacks get the house palette, type, and dark mode for free; full component parity is on the roadmap.
+- **Pin a version in production.** `components.json` defaults to `main`, which always pulls the latest. For "must not break", point the registry URL at a release tag instead, e.g. `https://raw.githubusercontent.com/TeamOliveCode/design-kit/v0.1.0/r/{name}.json`, and bump deliberately. `npx shadcn@latest diff` previews changes before you take them.
+
 ## A. New project (greenfield)
 
 ```bash

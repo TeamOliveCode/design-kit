@@ -23,16 +23,16 @@ You are applying **OliveKit**, a shared house design system, not inventing a new
 
 ## Never (AI tells)
 
-Purple/blue gradients, gradient-on-white, glassmorphism everywhere. A colored stripe on one edge of a card. A decorative rule before a label. Em-dashes and middle-dots in copy. Soft-tint pill spam. Big-number gradient stat heroes. Inter / Roboto / Geist / Space Grotesk / system fonts; emoji as decoration. `transition: all` and animating layout properties; scattered ping/fade. Symmetric three-icon-card feature grids; centered-hero + two-buttons template. Banned copy: leverage, elevate, unlock, seamless, transformative, effortless, robust. Full list: `docs/standards/anti-ai-patterns.md`.
+Purple/blue gradients, gradient-on-white, glassmorphism everywhere. A colored stripe on one edge of a card. A decorative rule before a label. Em-dashes and middle-dots in copy. Soft-tint pill spam. Big-number gradient stat heroes. Inter / Roboto / Geist / Space Grotesk / system fonts; emoji as decoration. `transition: all` and animating layout properties; scattered ping/fade. Symmetric three-icon-card feature grids; centered-hero + two-buttons template. Banned copy: leverage, elevate, unlock, seamless, transformative, effortless, robust. Full list: `https://github.com/TeamOliveCode/design-kit/blob/main/docs/standards/anti-ai-patterns.md`.
 
 ## Workflow (two passes, then check)
 
 1. **Plan against the system.** Pick the surface standard (app/product UI vs landing/marketing). List the exact tokens and existing `@olivekit/*` components you will use. Do not introduce new colors, fonts, or spacing values.
-2. **Self-critique before writing code.** Work the plan against `docs/standards/anti-ai-patterns.md`. If any choice could read as generic AI or off-system, revise it and say what you changed. Then build, deriving every value from tokens.
+2. **Self-critique before writing code.** Work the plan against `https://github.com/TeamOliveCode/design-kit/blob/main/docs/standards/anti-ai-patterns.md`. If any choice could read as generic AI or off-system, revise it and say what you changed. Then build, deriving every value from tokens.
 3. **After building**, run `npm run lint:design`, then eyeball against the anti-AI checklist. If the result could have been generated for any other brand, it is off-system; revise.
 
 ## Reach for
 
-- App / product UI (dense, dark, mono data, dot status): `docs/standards/app-ui.md`
-- Landing / marketing (airy, big display type, one signature): `docs/standards/landing.md`
-- Component anatomy and depth bar: `docs/standards/components.md`
+- App / product UI (dense, dark, mono data, dot status): `https://github.com/TeamOliveCode/design-kit/blob/main/docs/standards/app-ui.md`
+- Landing / marketing (airy, big display type, one signature): `https://github.com/TeamOliveCode/design-kit/blob/main/docs/standards/landing.md`
+- Component anatomy and depth bar: `https://github.com/TeamOliveCode/design-kit/blob/main/docs/standards/components.md`

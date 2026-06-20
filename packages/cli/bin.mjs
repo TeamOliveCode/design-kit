@@ -4,7 +4,7 @@
 // projects; running this drops the rules + tokens + guardrail + registry config into the target,
 // so Claude Code reads the house rules and stays on-system there too.
 import { cpSync, mkdirSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
-import { resolve, join } from 'node:path';
+import { resolve, join, relative, dirname, sep } from 'node:path';
 
 const KIT = resolve(import.meta.dirname, '../..');
 const [cmd, targetArg] = process.argv.slice(2);
@@ -85,12 +85,42 @@ if (!existsSync(componentsJson)) {
   created.push('components.json (with @olivekit registry)');
 }
 
+// 5. The olivekit-design skill, so Claude Code in this project gets the richer generation guidance.
+const skillDir = join(TARGET, '.claude/skills/olivekit-design');
+mkdirSync(skillDir, { recursive: true });
+cpSync(join(KIT, 'skills/olivekit-design/SKILL.md'), join(skillDir, 'SKILL.md'));
+created.push('.claude/skills/olivekit-design/SKILL.md');
+
+// 6. Best-effort: wire the token imports into a detected CSS entry, with the correct relative path.
+let cssWired = false;
+for (const rel of ['src/index.css', 'src/styles.css', 'src/app/globals.css', 'app/globals.css', 'styles/globals.css', 'src/styles/globals.css', 'src/app.css']) {
+  const p = join(TARGET, rel);
+  if (!existsSync(p)) continue;
+  const css = readFileSync(p, 'utf8');
+  if (!css.includes('olivekit/tokens.css')) {
+    let rp = relative(dirname(p), join(TARGET, 'olivekit')).split(sep).join('/');
+    if (!rp.startsWith('.')) rp = `./${rp}`;
+    const imports = `@import "${rp}/tokens.css";\n@import "${rp}/theme.css";\n`;
+    const next = css.includes('@import "tailwindcss"')
+      ? css.replace(/(@import\s+["']tailwindcss["'][^\n]*\n)/, `$1${imports}`)
+      : imports + css;
+    writeFileSync(p, next);
+    created.push(`${rel} (wired token imports)`);
+  }
+  cssWired = true;
+  break;
+}
+
 console.log('Created:');
 for (const c of created) console.log(`  + ${c}`);
 console.log('\nNext steps:');
-console.log('  1. In your main CSS, after `@import "tailwindcss";` add:');
-console.log('       @import "./olivekit/tokens.css";');
-console.log('       @import "./olivekit/theme.css";');
-console.log('  2. npx shadcn@latest add @olivekit/button @olivekit/card   (pull owned components)');
-console.log('  3. npm run lint:design   (the guardrail — must pass, wire into CI + pre-commit)');
-console.log('\nClaude Code now reads CLAUDE.md every session and stays inside the OliveKit rules.');
+let step = 1;
+if (!cssWired) {
+  console.log(`  ${step++}. In your main CSS, after \`@import "tailwindcss";\`, add (adjust the path to the olivekit/ folder):`);
+  console.log('       @import "./olivekit/tokens.css";');
+  console.log('       @import "./olivekit/theme.css";');
+}
+console.log(`  ${step++}. npx shadcn@latest add @olivekit/button @olivekit/card   (pull owned components)`);
+console.log(`  ${step++}. npm run lint:design   (the guardrail — must pass; wire into CI + pre-commit)`);
+console.log('\nRequires Tailwind v4 + React for components; the tokens (CSS variables) work in any stack.');
+console.log('Claude Code now reads CLAUDE.md + the olivekit-design skill every session and stays on-system.');
